@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { NAV_LINKS } from '../data/telecomData';
 
 /**
- * Navigation — uses the real GTS logo.
- * Transparent over the hero, solid white on scroll with a single bottom border.
+ * Navigation — Logo GTS seul, grand et net sans bordure ni ombre.
  */
 export default function Navbar({ onContact }) {
   const [scrolled, setScrolled] = useState(false);
@@ -18,21 +17,23 @@ export default function Navbar({ onContact }) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        scrolled ? 'bg-white border-b border-neutral-200' : 'bg-transparent'
+        scrolled ? 'bg-white border-b border-neutral-200' : 'bg-brand-navy/60 backdrop-blur-sm'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 select-none">
-          <img
-            src="/assets/gts-logo.png"
-            alt="GTS"
-            className="h-9 w-auto"
-          />
+      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        {/* Logo GTS seul, sans bordure ni ombre */}
+        <a href="#" className="flex items-center select-none" aria-label="GTS Accueil">
+          <div className="bg-white p-1.5 rounded-lg flex items-center justify-center">
+            <img
+              src="/assets/gts-logo.png"
+              alt="GTS - Global Telecom Services"
+              className="h-12 sm:h-14 w-auto object-contain"
+            />
+          </div>
         </a>
 
-        {/* Desktop links */}
-        <nav className="hidden lg:flex items-center gap-8">
+        {/* Liens de navigation */}
+        <nav className="hidden lg:flex items-center gap-7">
           {NAV_LINKS.map((l) => (
             <a
               key={l.href}
@@ -40,7 +41,7 @@ export default function Navbar({ onContact }) {
               className={`text-[13px] font-medium transition-colors ${
                 scrolled
                   ? 'text-neutral-600 hover:text-brand-navy'
-                  : 'text-white/80 hover:text-white'
+                  : 'text-neutral-200 hover:text-white'
               }`}
             >
               {l.label}
@@ -51,16 +52,16 @@ export default function Navbar({ onContact }) {
         {/* CTA */}
         <button
           onClick={onContact}
-          className={`hidden md:block text-[13px] font-semibold px-5 py-2 transition-colors ${
+          className={`hidden md:block text-[13px] font-semibold px-5 py-2.5 transition-colors ${
             scrolled
               ? 'bg-brand-navy text-white hover:bg-brand-navy/90'
-              : 'bg-white text-brand-navy hover:bg-white/90'
+              : 'bg-brand-orange text-white hover:bg-brand-orange/90'
           }`}
         >
           Nous contacter
         </button>
 
-        {/* Mobile toggle */}
+        {/* Bouton Mobile */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="lg:hidden p-2"
@@ -74,7 +75,7 @@ export default function Navbar({ onContact }) {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Menu Mobile */}
       {menuOpen && (
         <div className="lg:hidden bg-white border-b border-neutral-200 px-6 py-6">
           {NAV_LINKS.map((l) => (
