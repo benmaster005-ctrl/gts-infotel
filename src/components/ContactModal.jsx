@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 /**
- * Contact modal — formulaire épuré conforme aux solutions GTS Africa.
+ * Contact modal — formulaire conforme aux 7 solutions officielles ProCom (Juin 2026).
  */
 export default function ContactModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
@@ -10,7 +10,7 @@ export default function ContactModal({ isOpen, onClose }) {
     company: '',
     email: '',
     phone: '',
-    interest: 'Numéros fixes virtuels',
+    interest: 'Numéro PRO',
     message: '',
   });
 
@@ -63,16 +63,16 @@ export default function ContactModal({ isOpen, onClose }) {
           ) : (
             <>
               <h3 className="text-xl font-bold text-neutral-900">
-                Nous contacter
+                Demande de raccordement & Information
               </h3>
               <p className="mt-1 text-sm text-neutral-500">
-                Recevez un audit chiffré et sans engagement pour votre entreprise.
+                Recevez un audit chiffré et une proposition d'architecture ProCom sur mesure.
               </p>
 
               <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Field label="Nom" value={form.name} onChange={update('name')} required />
-                  <Field label="Entreprise" value={form.company} onChange={update('company')} required />
+                  <Field label="Entreprise / Organisation" value={form.company} onChange={update('company')} required />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Field label="Email" type="email" value={form.email} onChange={update('email')} required />
@@ -80,19 +80,21 @@ export default function ContactModal({ isOpen, onClose }) {
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-neutral-600 uppercase tracking-wider mb-1.5">
-                    Solution d'intérêt
+                    Solution d'intérêt ProCom
                   </label>
                   <select
                     value={form.interest}
                     onChange={update('interest')}
                     className="w-full border border-neutral-300 px-3 py-2.5 text-sm bg-white focus:outline-none focus:border-brand-navy transition-colors"
                   >
-                    <option>Numéros fixes virtuels</option>
-                    <option>ProCom & Mobinawa</option>
-                    <option>3CX Centre de Contacts</option>
-                    <option>3CX CloudPBX & UCC</option>
-                    <option>SMS Service Centre</option>
-                    <option>Autre besoin télécom</option>
+                    <option>Numéro PRO (Numéro fixe virtuel multicanal)</option>
+                    <option>Mobinawa (Application mobile de communication pro)</option>
+                    <option>Mobinawa-PRO (Pour indépendants & diaspora)</option>
+                    <option>Mobinawa-Business (UCaaS & IPBX Cloud)</option>
+                    <option>3CX-CallCenter (Centre d'appels & WhatsApp TPE/PME)</option>
+                    <option>DigiContacts (Centre de contact omnicanal & CRM)</option>
+                    <option>ProComCRM (CRM omnicanal & campagnes)</option>
+                    <option>Autre besoin télécom / Partenariat</option>
                   </select>
                 </div>
                 <div>
@@ -115,7 +117,7 @@ export default function ContactModal({ isOpen, onClose }) {
                 </button>
 
                 <p className="text-[11px] text-neutral-400 text-center">
-                  Vos données restent strictement confidentielles.
+                  GTS-Infotel Cameroon SA · Vos données sont protégées et strictement confidentielles.
                 </p>
               </form>
             </>
