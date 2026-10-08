@@ -2,10 +2,8 @@ import { WHY_GTS } from '../data/telecomData';
 
 /**
  * Section Réassurance : "Pourquoi choisir GTS-Infotel ?"
- * Conforme à la maquette :
- * - À gauche : Argumentaire de fond et les deux garanties clés (Haute Disponibilité & Support Local 24/7).
- * - À droite : Grille des 4 piliers chiffrés (20+ ans, Pionnier VAS, CAMTEL, Licence Cat. 1).
- * - Logos de marques officiels intégrés dans des pastilles blanches nettes sans filtres déformants.
+ * Met en avant le partenariat stratégique avec CAMTEL, l'alliance 3CX,
+ * la conformité ART et les 4 métriques clés.
  */
 export default function WhyChooseUs() {
   return (
@@ -27,7 +25,7 @@ export default function WhyChooseUs() {
               {WHY_GTS.text}
             </p>
 
-            {/* Garanties clés de la maquette */}
+            {/* Garanties clés incluant le partenariat CAMTEL et 3CX */}
             <div className="mt-8 space-y-5 border-t border-neutral-800 pt-8 max-w-xl">
               {WHY_GTS.guarantees.map((g, idx) => (
                 <div key={idx} className="flex items-start gap-3">
@@ -44,19 +42,27 @@ export default function WhyChooseUs() {
               ))}
             </div>
 
-            {/* Badges logos officiels nets sur fond blanc */}
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <span className="text-xs text-neutral-400 tracking-wider uppercase font-medium mr-2">
-                Écosystème certifié :
+            {/* Badges logos officiels : CAMTEL, 3CX, GTS, ProCom, Mobinawa */}
+            <div className="mt-10">
+              <span className="text-xs text-neutral-400 tracking-wider uppercase font-medium block mb-3">
+                Partenaires clés & Écosystème :
               </span>
-              <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
-                <img src="/assets/gts-logo.png" alt="GTS" className="h-6 w-auto object-contain" />
-              </div>
-              <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
-                <img src="/assets/procom-logo.png" alt="ProCom" className="h-6 w-auto object-contain" />
-              </div>
-              <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
-                <img src="/assets/mobinawa-logo.png" alt="Mobinawa" className="h-6 w-auto object-contain" />
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
+                  <img src="/assets/camtel-logo.png" alt="CAMTEL" className="h-6 w-auto object-contain" />
+                </div>
+                <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
+                  <img src="/assets/3cx-logo.svg" alt="3CX" className="h-5 w-auto object-contain" />
+                </div>
+                <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
+                  <img src="/assets/art-logo.jpg" alt="ART Cameroun" className="h-6 w-auto object-contain" />
+                </div>
+                <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
+                  <img src="/assets/procom-logo.png" alt="ProCom" className="h-6 w-auto object-contain" />
+                </div>
+                <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
+                  <img src="/assets/mobinawa-logo.png" alt="Mobinawa" className="h-6 w-auto object-contain" />
+                </div>
               </div>
             </div>
           </div>

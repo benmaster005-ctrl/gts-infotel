@@ -8,6 +8,7 @@ export const NAV_LINKS = [
   { label: 'PRO Number', href: '#pro-number' },
   { label: 'ProCom', href: '#procom' },
   { label: 'Pourquoi GTS', href: '#pourquoi' },
+  { label: 'Partenaires', href: '#partenaires' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -131,21 +132,62 @@ export const WHY_GTS = {
   text: "1er opérateur télécom alternatif de numéros fixes virtuels multi-services des entreprises au Cameroun. Infrastructure robuste, conformité réglementaire et support local depuis plus de 20 ans.",
   guarantees: [
     {
-      title: "Infrastructure Télécom Haute Disponibilité",
-      desc: "Disponibilité réseau garantie à 99.9% SLA, interconnectée directement aux cœurs de réseaux des opérateurs télécoms."
+      title: "Partenariat Stratégique CAMTEL",
+      desc: "Interconnexion directe avec l'opérateur public national CAMTEL garantissant la souveraineté, la stabilité des routes et une couverture totale au Cameroun."
     },
     {
-      title: "Support Technique & Proximité 24/7",
-      desc: "Équipes d'ingénieurs et techniciens basées localement au Cameroun pour un accompagnement continu sans intermédiaire."
+      title: "Partenariat Technologique 3CX Certifié",
+      desc: "Déploiement d'architectures CloudPBX et centres de contacts unifiés certifiés 3CX avec QoS et haute disponibilité."
+    },
+    {
+      title: "Conformité & Licence Réglementaire ART Catégorie 1",
+      desc: "Opérateur agréé par l'Agence de Régulation des Télécommunications (ART) du Cameroun sous le régime officiel de Catégorie 1."
+    },
+    {
+      title: "Support Technique & Proximité Locale 24/7",
+      desc: "Équipes d'ingénieurs et techniciens basées à Yaoundé et Douala pour une assistance réactive 24h/24 sans intermédiaire."
     }
   ],
   stats: [
     { value: '20+', label: "Années d'expérience" },
     { value: 'Pionnier', label: 'Télécom VAS en Afrique' },
-    { value: 'CAMTEL', label: 'Interconnexion Réseau' },
+    { value: 'CAMTEL', label: 'Interconnexion Stratégique' },
     { value: 'Cat. 1', label: 'Licence ART Cameroun' },
   ],
 };
+
+export const PARTNERS = [
+  {
+    name: "CAMTEL",
+    category: "Partenaire Réseau Stratégique",
+    desc: "Opérateur public national historique de télécommunications au Cameroun",
+    logo: "/assets/camtel-logo.png",
+  },
+  {
+    name: "3CX",
+    category: "Partenaire Technologique Mondial",
+    desc: "Plateforme mondiale de communications unifiées & CloudPBX",
+    logo: "/assets/3cx-logo.svg",
+  },
+  {
+    name: "ART Cameroun",
+    category: "Autorité de Régulation",
+    desc: "Agence de Régulation des Télécommunications · Licence Catégorie 1",
+    logo: "/assets/art-logo.jpg",
+  },
+  {
+    name: "ProCom",
+    category: "Réseau Opérateur",
+    desc: "the Online Communication on PRO Numbers",
+    logo: "/assets/procom-logo.png",
+  },
+  {
+    name: "Mobinawa",
+    category: "Plateforme Mobile Pro",
+    desc: "Communications unifiées mobile-first B2B & B2C",
+    logo: "/assets/mobinawa-logo.png",
+  }
+];
 
 export const PROCESS = {
   heading: 'Commencez simplement',
@@ -174,8 +216,8 @@ export const FAQ_ITEMS = [
     a: "Un numéro fixe virtuel est un numéro téléphonique professionnel hébergé dans le cloud. Il vous permet de disposer d'une identité téléphonique dédiée sans infrastructure physique, avec des fonctionnalités avancées : SVI, musique d'attente, renvoi d'appels et multi-canaux (Voix, SMS, WhatsApp).",
   },
   {
-    q: 'Puis-je conserver mes numéros existants ?',
-    a: 'Oui. Nos ingénieurs organisent la portabilité ou la redirection de vos numéros existants vers votre nouvelle infrastructure GTS.',
+    q: "Quel est le rôle du partenariat avec CAMTEL ?",
+    a: "CAMTEL est le partenaire stratégique national de GTS-Infotel. Ce partenariat permet l'acheminement fiable et réglementé des communications d'entreprise sur le réseau public camerounais, assurant ainsi une qualité audio optimale, des interconnexions directes et une haute disponibilité.",
   },
   {
     q: "Qu'est-ce que le réseau ProCom ?",
@@ -186,23 +228,19 @@ export const FAQ_ITEMS = [
     a: "Mobinawa est une plateforme mobile-first de communication unifiée B2B et B2C connectée au réseau ProCom. Elle intègre un standard téléphonique virtuel adapté aux entreprises de différentes tailles et rapproche les usages de téléphonie professionnelle des besoins de communication modernes.",
   },
   {
-    q: "Quel est le délai d'activation ?",
-    a: "L'activation et la configuration de base s'effectuent sous 24 à 48 heures ouvrées après validation des documents.",
+    q: "En quoi consiste l'intégration avec 3CX ?",
+    a: "GTS-Infotel intègre les technologies 3CX pour fournir aux entreprises un standard CloudPBX complet, un centre de contacts multi-agents et des outils de communications unifiées (UCC) interconnectés à ses numéros professionnels.",
   },
   {
-    q: "Qu'est-ce que le 3CX CloudPBX ?",
-    a: "3CX CloudPBX & UCC est une infrastructure de communication unifiée qui permet à vos équipes de travailler avec des outils professionnels intégrés : voix, vidéo, messagerie et collaboration.",
-  },
-  {
-    q: 'Proposez-vous un support local ?',
-    a: "Nos équipes sont basées au Cameroun et fournissent une assistance en français et en anglais, 24h/24 et 7j/7.",
+    q: "GTS-Infotel est-il un opérateur agréé par l'État ?",
+    a: "Oui. GTS-Infotel est titulaire de la Licence de Catégorie 1 délivrée par l'Agence de Régulation des Télécommunications (ART) du Cameroun, garantissant la légalité, la conformité réglementaire et la sécurité de toutes vos communications d'entreprise.",
   },
 ];
 
 export const FOOTER = {
   tagline: "1er opérateur télécom alternatif de numéros fixes virtuels multi-services des entreprises au Cameroun.",
-  address: 'Rue Drouot, Akwa, Douala — Cameroun',
-  phone: '+237 233 42 66 66',
+  address: "Rue de l'indépendance, Immeuble Face Calafatas, Yaoundé",
+  phone: "+237 242 232 000",
   email: 'contact@gts-infotel.com',
   website: 'cm.gts-africa.com',
 };

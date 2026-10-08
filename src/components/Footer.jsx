@@ -77,7 +77,7 @@ export default function Footer({ onContact }) {
       <div className="border-t border-neutral-800">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
           <span>© {new Date().getFullYear()} GTS-Infotel. Tous droits réservés.</span>
-          <span>Douala, Cameroun</span>
+          <span>Yaoundé, Cameroun</span>
         </div>
       </div>
     </footer>

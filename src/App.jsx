@@ -6,6 +6,7 @@ import ProNumber from './components/ProNumber';
 import ProductSpotlight from './components/ProductSpotlight';
 import Solutions from './components/Solutions';
 import WhyChooseUs from './components/WhyChooseUs';
+import Partners from './components/Partners';
 import OnboardingSteps from './components/OnboardingSteps';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
@@ -29,6 +30,7 @@ export default function App() {
         <ProductSpotlight onContact={openContact} />
         <Solutions onContact={openContact} />
         <WhyChooseUs />
+        <Partners />
         <OnboardingSteps onContact={openContact} />
         <FAQ />
       </main>
