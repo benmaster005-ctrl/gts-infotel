@@ -5,12 +5,11 @@
  */
 
 export const NAV_LINKS = [
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'PRO Number', href: '#pro-number' },
-  { label: 'ProCom', href: '#procom' },
+  { label: 'Accueil', href: '#' },
+  { label: 'Solutions', href: '#solutions', hasDropdown: true },
+  { label: 'Numéro PRO', href: '#pro-number' },
   { label: 'Pourquoi GTS', href: '#pourquoi' },
-  { label: 'Partenaires', href: '#partenaires' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'À propos', href: '#a-propos' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -110,6 +109,7 @@ export const SOLUTIONS = {
         'Annuaire ProCom : recherche d’entreprises et accès direct aux services numériques',
       ],
       cta: 'Découvrir Mobinawa',
+      ctaHref: 'https://www.mobinawa.com/',
     },
     {
       id: 'mobinawa-pro',
@@ -125,6 +125,7 @@ export const SOLUTIONS = {
         'Consultants indépendants & Diaspora',
       ],
       cta: 'Souscrire à Mobinawa-PRO',
+      ctaHref: 'https://www.mobinawa.com/',
     },
     {
       id: 'mobinawa-business',
@@ -140,6 +141,7 @@ export const SOLUTIONS = {
         'Émission et réception d’appels locaux avec Numéro PRO',
       ],
       cta: 'Déployer Mobinawa-Business',
+      ctaHref: 'https://www.mobinawa.com/',
     },
     {
       id: '3cx-callcenter',
@@ -170,6 +172,7 @@ export const SOLUTIONS = {
         'Fiches clients personnalisables et interconnexion aux processus métiers',
       ],
       cta: 'Découvrir DigiContacts',
+      ctaHref: 'https://www.digicontacts.net/',
     },
     {
       id: 'procom-crm',
@@ -303,6 +306,11 @@ export const FOOTER = {
   tagline: "1er opérateur télécom alternatif de numéros fixes virtuels multi-services des entreprises au Cameroun.",
   address: "Rue de l'indépendance, Immeuble Face Calafatas, Yaoundé",
   phone: "+237 242 232 000",
-  email: 'contact@gts-infotel.com',
+  phoneRaw: "+237242232000",
+  email: 'contact.cm@gts-africa.com',
   website: 'cm.gts-africa.com',
+  whatsapp: 'https://wa.me/237242232000',
+  twitter: 'https://twitter.com/gtsinfotelcm',
+  linkedin: 'https://fr.linkedin.com/company/gts-infotel-nigeria-ltd',
+  legalName: 'GTS-Infotel Cameroon SA',
 };

@@ -79,14 +79,32 @@ export default function Solutions({ onContact }) {
 
               {/* Colonne 3 : Action / Souscription */}
               <div className="lg:col-span-3 lg:text-right flex flex-col items-start lg:items-end justify-between h-full pt-1">
-                <button
-                  onClick={onContact}
-                  className="bg-brand-navy text-white text-xs sm:text-sm font-semibold px-5 py-3 hover:bg-brand-blue transition-colors"
-                >
-                  {sol.cta}
-                </button>
+                {sol.ctaHref ? (
+                  <a
+                    href={sol.ctaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-brand-navy text-white text-xs sm:text-sm font-semibold px-5 py-3 hover:bg-brand-blue transition-colors inline-flex items-center gap-2 shadow-sm"
+                  >
+                    <span>{sol.cta}</span>
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                ) : (
+                  <button
+                    onClick={onContact}
+                    className="bg-brand-navy text-white text-xs sm:text-sm font-semibold px-5 py-3 hover:bg-brand-blue transition-colors"
+                  >
+                    {sol.cta}
+                  </button>
+                )}
                 <span className="text-[11px] text-neutral-400 mt-3">
-                  Mode SaaS · Sans engagement lourd
+                  {sol.id.startsWith('mobinawa')
+                    ? 'Portail officiel mobinawa.com ↗'
+                    : sol.id === 'digicontacts'
+                    ? 'Portail officiel digicontacts.net ↗'
+                    : 'Mode SaaS · Sans engagement lourd'}
                 </span>
               </div>
             </div>
