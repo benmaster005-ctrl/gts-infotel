@@ -4,13 +4,20 @@ import { ChevronDown, ArrowRight, Menu, X } from 'lucide-react';
 
 export default function Navbar({ onContact, currentRoute = 'home', onNavigate }) {
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const dropdownTimeout = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollProgress(Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100)));
+      }
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -136,10 +143,10 @@ export default function Navbar({ onContact, currentRoute = 'home', onNavigate })
                     <ChevronDown className="w-4 h-4 text-gray-500" />
                   </button>
 
-                  {/* Menu déroulant sur fond blanc pur */}
+                  {/* Menu déroulant sur fond blanc pur avec animation fluide */}
                   {dropdownOpen && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
-                      <div className="bg-white border border-gray-200 shadow-lg rounded-xl w-[440px] p-2">
+                    <div className="absolute top-full left-1/2 pt-2 animate-dropdown">
+                      <div className="bg-white border border-gray-200 shadow-xl rounded-xl w-[440px] p-2">
                         <div className="grid gap-1">
                           {SOLUTIONS.items.map((sol) => {
                             const isMobinawa = sol.id.startsWith('mobinawa');
@@ -229,11 +236,17 @@ export default function Navbar({ onContact, currentRoute = 'home', onNavigate })
             {menuOpen ? <X className="w-6 h-6 text-current" /> : <Menu className="w-6 h-6 text-current" />}
           </button>
         </div>
+        
+        {/* Barre de progression de lecture discrète */}
+        <div 
+          className="h-[2px] bg-brand-orange transition-all duration-75 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
       </header>
 
-      {/* Tiroir Mobile sur fond blanc pur */}
+      {/* Tiroir Mobile sur fond blanc pur avec animation douce */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-white pt-24 px-6 lg:hidden flex flex-col justify-between pb-8">
+        <div className="fixed inset-0 z-40 bg-white pt-24 px-6 lg:hidden flex flex-col justify-between pb-8 animate-fade-in">
           <nav className="flex flex-col gap-2">
             {NAV_LINKS.map((l) => (
               <a

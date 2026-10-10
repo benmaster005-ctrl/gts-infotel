@@ -10,7 +10,7 @@ export default function Hero({ onContact }) {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* En-tête Hero sans dégradé avec grand espace blanc */}
-        <div className="max-w-4xl">
+        <div className="max-w-4xl animate-fade-in-up">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-navy leading-tight mb-8">
             Standard virtuel & Numéros Professionnels pour entreprises.
           </h1>
@@ -40,23 +40,23 @@ export default function Hero({ onContact }) {
 
         {/* Ligne de réassurance épurée sans nommages parasites */}
         <div ref={trustRef} className="pt-10 border-t border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="p-4 rounded-lg border border-gray-200 bg-white">
-            <span className="text-sm font-semibold text-brand-navy block">Opérateur Agréé</span>
+          <div className="clean-card p-4">
+            <span className="text-sm font-semibold text-brand-navy block mb-0.5">Opérateur Agréé</span>
             <span className="text-xs text-gray-600">Conformité ART Cameroun</span>
           </div>
 
-          <div className="p-4 rounded-lg border border-gray-200 bg-white">
-            <span className="text-sm font-semibold text-brand-navy block">Partenaire CAMTEL</span>
+          <div className="clean-card p-4">
+            <span className="text-sm font-semibold text-brand-navy block mb-0.5">Partenaire CAMTEL</span>
             <span className="text-xs text-gray-600">Interconnexion directe</span>
           </div>
 
-          <div className="p-4 rounded-lg border border-gray-200 bg-white">
-            <span className="text-sm font-semibold text-brand-navy block">Réseau ProCom</span>
+          <div className="clean-card p-4">
+            <span className="text-sm font-semibold text-brand-navy block mb-0.5">Réseau ProCom</span>
             <span className="text-xs text-gray-600">Voix, SMS et messageries</span>
           </div>
 
-          <div className="p-4 rounded-lg border border-gray-200 bg-white">
-            <span className="text-sm font-semibold text-brand-navy block">Support Dédié</span>
+          <div className="clean-card p-4">
+            <span className="text-sm font-semibold text-brand-navy block mb-0.5">Support Dédié</span>
             <span className="text-xs text-gray-600">Équipes basées à Douala & Yaoundé</span>
           </div>
         </div>

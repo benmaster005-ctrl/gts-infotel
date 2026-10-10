@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ArrowUp } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Benefits from './components/Benefits';
@@ -23,6 +24,7 @@ import AboutPage from './pages/AboutPage';
  */
 export default function App() {
   const [contactOpen, setContactOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [currentRoute, setCurrentRoute] = useState(() => {
     if (window.location.hash === '#numero-pro') return 'numero-pro';
     if (window.location.hash === '#3cx-callcenter') return '3cx-callcenter';
@@ -55,6 +57,18 @@ export default function App() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 350);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const navigate = (route) => {
     setCurrentRoute(route);
@@ -132,6 +146,17 @@ export default function App() {
 
       <Footer onContact={openContact} onNavigate={navigate} />
       <ContactModal isOpen={contactOpen} onClose={closeContact} />
+
+      {/* Bouton Flottant Retour en Haut discret */}
+      <button
+        onClick={scrollToTop}
+        aria-label="Retour en haut"
+        className={`fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center text-gray-700 hover:text-brand-orange hover:border-gray-300 transition-all duration-300 cursor-pointer ${
+          showScrollTop ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+      >
+        <ArrowUp className="w-5 h-5 text-current" />
+      </button>
     </>
   );
 }
