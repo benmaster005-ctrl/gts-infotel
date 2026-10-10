@@ -1,91 +1,85 @@
+import React from 'react';
 import { WHY_GTS } from '../data/telecomData';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { Handshake, Award, Shield, HeadphonesIcon } from 'lucide-react';
 
-/**
- * Section Réassurance : "Pourquoi choisir GTS-Infotel ?"
- * Met en avant le partenariat stratégique avec CAMTEL, l'alliance 3CX,
- * la conformité ART et les 4 métriques clés.
- */
-export default function WhyChooseUs() {
+const icons = [Handshake, Award, Shield, HeadphonesIcon];
+
+const WhyChooseUs = () => {
+  const [sectionRef] = useScrollAnimation();
+
   return (
-    <section id="pourquoi" className="py-24 bg-brand-navy text-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+    <section id="pourquoi" ref={sectionRef} className="py-24 md:py-32 bg-white border-b border-gray-200 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* En-tête */}
+        <div className="max-w-3xl mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4">
+            {WHY_GTS.heading}
+          </h2>
+          <p className="text-base text-gray-600 font-normal leading-relaxed">
+            {WHY_GTS.text}
+          </p>
+        </div>
+
+        {/* Grille : Garanties + Stats */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Colonne Gauche : Argumentaire & Garanties de service */}
-          <div className="lg:col-span-7">
-            <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400">
-              EXPERTISE & ASSURANCE OPÉRATEUR
-            </span>
-
-            <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold tracking-tight">
-              {WHY_GTS.heading}
-            </h2>
-
-            <p className="mt-6 text-[15px] leading-relaxed text-neutral-300 max-w-xl">
-              {WHY_GTS.text}
-            </p>
-
-            {/* Garanties clés incluant le partenariat CAMTEL et 3CX */}
-            <div className="mt-8 space-y-5 border-t border-neutral-800 pt-8 max-w-xl">
-              {WHY_GTS.guarantees.map((g, idx) => (
-                <div key={idx} className="flex items-start gap-3">
-                  <span className="text-brand-orange text-sm font-bold select-none shrink-0 mt-0.5">—</span>
+          {/* Colonne Garanties */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {WHY_GTS.guarantees?.map((guarantee, index) => {
+              const Icon = icons[index % icons.length];
+              return (
+                <div
+                  key={index}
+                  className="clean-card p-6 flex flex-col justify-between"
+                >
                   <div>
-                    <h3 className="text-sm font-bold text-white">
-                      {g.title}
+                    <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-700 mb-4">
+                      <Icon className="w-5 h-5 text-current" />
+                    </div>
+                    <h3 className="text-base font-bold text-brand-navy mb-2">
+                      {guarantee.title}
                     </h3>
-                    <p className="mt-1 text-xs sm:text-sm text-neutral-400 leading-relaxed">
-                      {g.desc}
+                    <p className="text-sm text-gray-600 leading-relaxed font-normal">
+                      {guarantee.desc}
                     </p>
                   </div>
                 </div>
-              ))}
-            </div>
-
-            {/* Badges logos officiels : CAMTEL, 3CX, GTS, ProCom, Mobinawa */}
-            <div className="mt-10">
-              <span className="text-xs text-neutral-400 tracking-wider uppercase font-medium block mb-3">
-                Partenaires clés & Écosystème :
-              </span>
-              <div className="flex flex-wrap items-center gap-3">
-                <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
-                  <img src="/assets/camtel-logo.png" alt="CAMTEL" className="h-6 w-auto object-contain" />
-                </div>
-                <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
-                  <img src="/assets/3cx-logo.svg" alt="3CX" className="h-5 w-auto object-contain" />
-                </div>
-                <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
-                  <img src="/assets/art-logo.jpg" alt="ART Cameroun" className="h-6 w-auto object-contain" />
-                </div>
-                <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
-                  <img src="/assets/procom-logo.png" alt="ProCom" className="h-6 w-auto object-contain" />
-                </div>
-                <div className="bg-white px-3 py-1.5 rounded flex items-center justify-center">
-                  <img src="/assets/mobinawa-logo.png" alt="Mobinawa" className="h-6 w-auto object-contain" />
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
 
-          {/* Colonne Droite : Les 4 métriques clés de la maquette */}
+          {/* Colonne Statistiques sur fond blanc pur */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-4">
-            {WHY_GTS.stats.map((s, i) => (
+            {WHY_GTS.stats?.map((stat, index) => (
               <div
-                key={i}
-                className="border border-neutral-800 bg-neutral-900/60 p-6 flex flex-col justify-between"
+                key={index}
+                className="p-6 rounded-xl border border-gray-200 bg-white flex flex-col justify-between"
               >
-                <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white font-mono">
-                  {s.value}
-                </div>
-                <div className="mt-3 text-xs sm:text-sm font-medium text-neutral-300 leading-snug">
-                  {s.label}
-                </div>
+                <span className="text-3xl sm:text-4xl font-bold text-brand-navy mb-2 block">
+                  {stat.value}
+                </span>
+                <span className="text-xs text-gray-600 uppercase tracking-wider font-medium leading-snug">
+                  {stat.label}
+                </span>
               </div>
             ))}
+            
+            {/* Statut officiel */}
+            <div className="col-span-2 p-5 rounded-xl border border-gray-200 bg-white flex items-center justify-between">
+              <span className="text-xs font-medium text-gray-700">
+                Régulation & Autorisation ART Cameroun
+              </span>
+              <span className="text-xs font-semibold text-brand-navy">Agréé</span>
+            </div>
           </div>
 
         </div>
+
       </div>
     </section>
   );
-}
+};
+
+export default WhyChooseUs;

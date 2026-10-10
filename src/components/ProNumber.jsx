@@ -1,84 +1,110 @@
+import React, { useState } from 'react';
+import { CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import { PRO_NUMBER } from '../data/telecomData';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-/**
- * PRO Number / Numéros fixes virtuels — uses the real infographic image.
- * Left: infographic. Right: editorial content with "Idéal pour" and capabilities.
- */
-export default function ProNumber() {
+const ProNumber = () => {
+  const [leftRef] = useScrollAnimation();
+  const [rightRef] = useScrollAnimation();
+  const [isCapabilitiesOpen, setIsCapabilitiesOpen] = useState(false);
+
   return (
-    <section id="pro-number" className="py-24 bg-white border-b border-neutral-100">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left — infographic */}
-          <div>
-            <img
-              src="/assets/pro-number-infographic.png"
-              alt="PRO Number — Voix, SMS, WhatsApp dans le cloud"
-              className="w-full max-w-md mx-auto lg:mx-0"
-            />
+    <section id="pro-number" className="py-24 md:py-32 bg-white border-b border-gray-200 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Colonne Gauche - Image d'illustration sur fond blanc */}
+          <div ref={leftRef} className="lg:col-span-6">
+            <div className="clean-card p-6 sm:p-8 flex flex-col items-center justify-center">
+              <img 
+                src="/assets/numero-pro/image-numero.png" 
+                alt="Numéro PRO GTS-Infotel" 
+                className="max-h-64 max-w-full object-contain mb-6"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+              
+              {/* Canaux unifiés épurés sans icônes superflues */}
+              <div className="grid grid-cols-3 gap-3 w-full pt-4 border-t border-gray-100 text-center">
+                <div className="p-2.5 rounded-lg border border-gray-200 bg-white">
+                  <span className="text-sm font-semibold text-brand-navy block">Voix</span>
+                  <span className="text-xs text-gray-500">Appels simultanés</span>
+                </div>
+                <div className="p-2.5 rounded-lg border border-gray-200 bg-white">
+                  <span className="text-sm font-semibold text-brand-navy block">SMS</span>
+                  <span className="text-xs text-gray-500">API & Messagerie</span>
+                </div>
+                <div className="p-2.5 rounded-lg border border-gray-200 bg-white">
+                  <span className="text-sm font-semibold text-brand-navy block">WhatsApp</span>
+                  <span className="text-xs text-gray-500">Business API</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Right — content */}
-          <div>
-            <span className="text-xs font-semibold tracking-widest uppercase text-brand-blue">
-              Numéro Professionnel
-            </span>
-
-            <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-navy">
-              {PRO_NUMBER.heading}
-            </h2>
-
-            <p className="mt-2 text-base text-neutral-500 font-medium">
-              {PRO_NUMBER.subheading}
-            </p>
-
-            <p className="mt-5 text-[15px] leading-relaxed text-neutral-600">
-              {PRO_NUMBER.text}
-            </p>
-
-            {/* Channels */}
-            <div className="mt-8 flex items-center gap-6">
-              {PRO_NUMBER.channels.map((ch) => (
-                <span key={ch} className="text-sm font-semibold text-brand-navy">
-                  {ch}
-                </span>
-              ))}
+          {/* Colonne Droite - Contenu */}
+          <div ref={rightRef} className="lg:col-span-6 space-y-6">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4">
+                {PRO_NUMBER.subheading}
+              </h2>
+              
+              <p className="text-base text-gray-600 font-normal leading-relaxed">
+                {PRO_NUMBER.text}
+              </p>
             </div>
 
-            {/* Idéal pour */}
-            {PRO_NUMBER.idealFor && (
-              <div className="mt-8 border-t border-neutral-100 pt-6">
-                <span className="text-xs font-semibold tracking-widest uppercase text-neutral-400">
-                  Idéal pour
-                </span>
-                <ul className="mt-3 space-y-2">
-                  {PRO_NUMBER.idealFor.map((item, i) => (
-                    <li key={i} className="text-sm text-neutral-700 flex items-baseline gap-3">
-                      <span className="text-brand-orange text-xs select-none">—</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Capabilities */}
-            <details className="mt-8 group">
-              <summary className="text-sm font-semibold text-brand-navy cursor-pointer hover:text-brand-blue transition-colors select-none">
-                Voir toutes les fonctionnalités
-              </summary>
-              <ul className="mt-4 space-y-2">
-                {PRO_NUMBER.capabilities.map((cap, i) => (
-                  <li key={i} className="text-sm text-neutral-600 flex items-baseline gap-3">
-                    <span className="text-neutral-300 text-xs select-none">—</span>
-                    {cap.label}
+            {/* Liste avec icônes de liste orange autorisées */}
+            <div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {PRO_NUMBER.idealFor?.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-700">{item}</span>
                   </li>
                 ))}
               </ul>
-            </details>
+            </div>
+
+            {/* Accordéon des capacités */}
+            {PRO_NUMBER.capabilities && PRO_NUMBER.capabilities.length > 0 && (
+              <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
+                <button 
+                  onClick={() => setIsCapabilitiesOpen(!isCapabilitiesOpen)}
+                  className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors"
+                >
+                  <span className="text-sm font-semibold text-brand-navy">
+                    Fonctionnalités incluses avec le numéro
+                  </span>
+                  {isCapabilitiesOpen ? (
+                    <ChevronUp className="w-4 h-4 text-gray-700" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4 text-gray-700" />
+                  )}
+                </button>
+                
+                {isCapabilitiesOpen && (
+                  <div className="p-4 border-t border-gray-200 bg-white">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {PRO_NUMBER.capabilities.map((cap, idx) => (
+                        <li key={idx} className="text-xs text-gray-600 flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand-orange shrink-0" />
+                          {cap.label}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )}
+
           </div>
+
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default ProNumber;

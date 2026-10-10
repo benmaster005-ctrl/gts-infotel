@@ -1,135 +1,125 @@
+import React from 'react';
 import { SOLUTIONS } from '../data/telecomData';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { Check, ArrowRight, ExternalLink } from 'lucide-react';
 
-/**
- * Solutions — Catalogue officiel des solutions ProCom (Juin 2026).
- * Présentation éditoriale sans cartes génériques répétitives :
- * Chaque solution associe son visuel extrait du document officiel,
- * sa typographie soignée, ses modules clés et son action directe.
- */
-export default function Solutions({ onContact }) {
+const Solutions = ({ onContact }) => {
+  const [headerRef] = useScrollAnimation();
+
   return (
-    <section id="solutions" className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="solutions" className="py-24 md:py-32 bg-white border-b border-gray-200 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-6">
         
-        {/* En-tête de section */}
-        <div className="max-w-3xl mb-16">
-          <span className="text-xs font-semibold tracking-widest uppercase text-brand-orange">
-            {SOLUTIONS.surtitle}
-          </span>
-          <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-navy">
-            {SOLUTIONS.heading}
+        {/* En-tête */}
+        <div ref={headerRef} className="max-w-3xl mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4">
+            {SOLUTIONS?.heading || "Solutions de communication professionnelle"}
           </h2>
-          <p className="mt-4 text-[15px] text-neutral-600 leading-relaxed">
-            {SOLUTIONS.lead}
+          <p className="text-base text-gray-600 font-normal leading-relaxed">
+            {SOLUTIONS?.lead || "Des plateformes certifiées pour unifier la voix, le SMS et les messageries d'entreprise."}
           </p>
         </div>
 
-        {/* Liste des solutions ProCom */}
-        <div className="divide-y divide-neutral-200 border-t border-b border-neutral-200">
-          {SOLUTIONS.items.map((sol, idx) => (
-            <div
-              key={sol.id}
-              className="py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
-            >
-              {/* Colonne 1 : Index, Logo/Visuel officiel extrait & Titre */}
-              <div className="lg:col-span-4">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-mono font-bold text-neutral-300">
-                    {String(idx + 1).padStart(2, '0')}
-                  </span>
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-brand-blue">
-                    {sol.badge}
-                  </span>
+        {/* Grille Solutions */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {SOLUTIONS?.items?.map((solution, index) => {
+            const isExternal = solution.ctaHref && solution.ctaHref.startsWith('http');
+            
+            return (
+              <div 
+                key={solution.id || index}
+                className="clean-card p-8 flex flex-col justify-between"
+              >
+                <div>
+                  {/* Logo de la solution */}
+                  <div className="h-16 flex items-center mb-6">
+                    <img 
+                      src={solution.image} 
+                      alt={solution.title}
+                      className="max-h-12 w-auto object-contain"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-brand-navy mb-2">
+                    {solution.title}
+                  </h3>
+                  <p className="text-brand-blue font-medium text-sm mb-3">
+                    {solution.tagline}
+                  </p>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6 font-normal">
+                    {solution.text}
+                  </p>
+
+                  {/* Liste des fonctionnalités avec icônes orange */}
+                  {solution.features && solution.features.length > 0 && (
+                    <div className="space-y-2.5 pt-4 border-t border-gray-100 mb-8">
+                      {solution.features.map((feature, fIndex) => (
+                        <div key={fIndex} className="flex items-start gap-2.5">
+                          <Check className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
+                          <span className="text-sm text-gray-700 font-normal">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
-                {/* Visuel officiel extrait */}
-                <div className="h-16 flex items-center justify-start mb-4">
-                  <img
-                    src={sol.image}
-                    alt={sol.title}
-                    className="max-h-14 max-w-[200px] object-contain"
-                  />
+                {/* Footer de carte */}
+                <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+                  {solution.ctaHref ? (
+                    <a 
+                      href={solution.ctaHref}
+                      target={isExternal ? "_blank" : "_self"}
+                      rel={isExternal ? "noopener noreferrer" : ""}
+                      className="inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+                    >
+                      {solution.cta || "En savoir plus"}
+                      {isExternal ? (
+                        <ExternalLink className="w-4 h-4 ml-1.5 text-gray-500" />
+                      ) : (
+                        <ArrowRight className="w-4 h-4 ml-1.5 text-gray-500" />
+                      )}
+                    </a>
+                  ) : (
+                    <button 
+                      onClick={() => onContact && onContact(solution.id)}
+                      className="inline-flex items-center text-sm font-semibold text-brand-blue hover:text-brand-orange transition-colors"
+                    >
+                      {solution.cta || "Demander un devis"}
+                      <ArrowRight className="w-4 h-4 ml-1.5" />
+                    </button>
+                  )}
                 </div>
-
-                <h3 className="text-xl font-bold text-neutral-900">
-                  {sol.title}
-                </h3>
-                <p className="mt-1 text-sm font-medium text-neutral-500">
-                  {sol.tagline}
-                </p>
               </div>
-
-              {/* Colonne 2 : Description détaillée & Modules clés */}
-              <div className="lg:col-span-5">
-                <p className="text-[15px] leading-relaxed text-neutral-600">
-                  {sol.text}
-                </p>
-
-                {sol.features && (
-                  <ul className="mt-5 space-y-2">
-                    {sol.features.map((feat, i) => (
-                      <li key={i} className="text-xs sm:text-sm text-neutral-700 flex items-start gap-2.5">
-                        <span className="text-brand-orange text-xs select-none mt-0.5">—</span>
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-
-              {/* Colonne 3 : Action / Souscription */}
-              <div className="lg:col-span-3 lg:text-right flex flex-col items-start lg:items-end justify-between h-full pt-1">
-                {sol.ctaHref ? (
-                  <a
-                    href={sol.ctaHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-brand-navy text-white text-xs sm:text-sm font-semibold px-5 py-3 hover:bg-brand-blue transition-colors inline-flex items-center gap-2 shadow-sm"
-                  >
-                    <span>{sol.cta}</span>
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                ) : (
-                  <button
-                    onClick={onContact}
-                    className="bg-brand-navy text-white text-xs sm:text-sm font-semibold px-5 py-3 hover:bg-brand-blue transition-colors"
-                  >
-                    {sol.cta}
-                  </button>
-                )}
-                <span className="text-[11px] text-neutral-400 mt-3">
-                  {sol.id.startsWith('mobinawa')
-                    ? 'Portail officiel mobinawa.com ↗'
-                    : sol.id === 'digicontacts'
-                    ? 'Portail officiel digicontacts.net ↗'
-                    : 'Mode SaaS · Sans engagement lourd'}
-                </span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Appel à l'action de synthèse */}
-        <div className="mt-16 pt-10 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-          <div>
-            <p className="text-lg font-bold text-neutral-900">
-              Besoin d'un audit de vos flux télécoms d'entreprise ?
-            </p>
-            <p className="mt-1 text-sm text-neutral-500">
-              Nos ingénieurs certifiés configurent votre architecture ProCom sur mesure.
+        {/* CTA Banner sur fond blanc avec bordure nette (AUCUN DÉGRADÉ) */}
+        <div className="mt-16 rounded-xl border border-gray-200 bg-white p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="max-w-xl">
+            <h3 className="text-2xl font-bold text-brand-navy mb-2">
+              Prêt à déployer votre solution télécom ?
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed font-normal">
+              Nos ingénieurs analysent votre infrastructure existante et vous proposent le dimensionnement adapté en moins de 24h.
             </p>
           </div>
-          <button
-            onClick={onContact}
-            className="shrink-0 bg-brand-orange text-white text-sm font-semibold px-8 py-3.5 hover:bg-brand-orange/90 transition-colors"
+          
+          <button 
+            onClick={() => onContact && onContact()}
+            className="btn-accent text-sm py-3 px-6 whitespace-nowrap shrink-0"
           >
-            Prendre contact
+            Parler à un expert GTS
+            <ArrowRight className="w-4 h-4 ml-1 text-white" />
           </button>
         </div>
 
       </div>
     </section>
   );
-}
+};
+
+export default Solutions;

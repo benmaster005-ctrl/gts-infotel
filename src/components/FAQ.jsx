@@ -1,49 +1,63 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FAQ_ITEMS } from '../data/telecomData';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { ChevronDown } from 'lucide-react';
 
-/**
- * FAQ — simple accordion. No search bar (unnecessary for 6 items),
- * no cards around each item, no icons. Just text that opens and closes.
- */
-export default function FAQ() {
-  const [openIdx, setOpenIdx] = useState(0);
+const FAQ = () => {
+  const [sectionRef] = useScrollAnimation();
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <section id="faq" className="py-24 bg-neutral-50">
-      <div className="max-w-3xl mx-auto px-6">
-        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-navy">
-          Questions fréquentes
-        </h2>
+    <section ref={sectionRef} className="py-24 md:py-32 bg-white border-b border-gray-200">
+      <div className="max-w-4xl mx-auto px-6">
+        
+        {/* En-tête */}
+        <div className="max-w-2xl mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4">
+            Questions Fréquemment Posées
+          </h2>
+          <p className="text-base text-gray-600 font-normal">
+            Tout comprendre sur l'attribution des numéros virtuels et le fonctionnement du réseau ProCom.
+          </p>
+        </div>
 
-        <div className="mt-12 divide-y divide-neutral-200">
-          {FAQ_ITEMS.map((item, i) => {
-            const isOpen = openIdx === i;
+        {/* Accordéon sur fond blanc pur */}
+        <div className="space-y-3">
+          {FAQ_ITEMS?.map((item, index) => {
+            const isOpen = openIndex === index;
+            
             return (
-              <div key={i}>
+              <div 
+                key={index}
+                className="rounded-lg border border-gray-200 bg-white overflow-hidden"
+              >
                 <button
-                  onClick={() => setOpenIdx(isOpen ? -1 : i)}
-                  className="w-full text-left py-5 flex items-start justify-between gap-4"
-                  aria-expanded={isOpen}
+                  onClick={() => toggleAccordion(index)}
+                  className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left focus:outline-none hover:bg-gray-50 transition-colors"
                 >
-                  <span className={`text-[15px] font-semibold transition-colors ${isOpen ? 'text-brand-navy' : 'text-neutral-800'}`}>
+                  <span className="text-base font-semibold text-brand-navy">
                     {item.q}
                   </span>
-                  <span className="text-neutral-400 text-xl leading-none shrink-0 mt-0.5 select-none">
-                    {isOpen ? '−' : '+'}
-                  </span>
+                  <ChevronDown className={`w-5 h-5 text-gray-600 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
+                
                 {isOpen && (
-                  <div className="pb-5 pr-12">
-                    <p className="text-sm leading-relaxed text-neutral-600">
-                      {item.a}
-                    </p>
+                  <div className="px-6 pb-6 pt-1 border-t border-gray-100 text-gray-600 text-sm leading-relaxed font-normal">
+                    {item.a}
                   </div>
                 )}
               </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );
-}
+};
+
+export default FAQ;

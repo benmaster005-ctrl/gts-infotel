@@ -1,37 +1,56 @@
+import React from 'react';
+import { Building2, MessageSquare, GitMerge } from 'lucide-react';
 import { BENEFITS } from '../data/telecomData';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-/**
- * Benefits — three columns of text, no cards.
- * Uses a strong heading and simple paragraph columns separated by layout alone.
- * No icons, no badges, no card wrappers, no shadows.
- */
-export default function Benefits() {
+const iconMap = [Building2, MessageSquare, GitMerge];
+
+const Benefits = () => {
+  const [headerRef] = useScrollAnimation();
+
   return (
-    <section className="py-24 border-b border-neutral-100">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Section heading — left-aligned, strong */}
-        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-navy max-w-lg">
-          {BENEFITS.heading}
-        </h2>
+    <section className="py-24 md:py-32 bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* En-tête */}
+        <div ref={headerRef} className="max-w-3xl mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4">
+            {BENEFITS.heading}
+          </h2>
+          <p className="text-base text-gray-600 leading-relaxed font-normal">
+            Une identité téléphonique virtuelle pérenne pour identifier, professionnaliser et centraliser vos communications d'entreprise.
+          </p>
+        </div>
 
-        {/* Three text columns — no cards, just typography and spacing */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
-          {BENEFITS.items.map((item, i) => (
-            <div key={i}>
-              {/* Small ordinal accent */}
-              <span className="text-xs font-semibold text-brand-orange tracking-wider uppercase">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <h3 className="mt-2 text-lg font-bold text-neutral-900">
-                {item.title}
-              </h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-neutral-600">
-                {item.text}
-              </p>
-            </div>
-          ))}
+        {/* Cartes épurées sur fond blanc */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {BENEFITS.items.map((item, index) => {
+            const Icon = iconMap[index] || Building2;
+            
+            return (
+              <div 
+                key={index}
+                className="clean-card p-8 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center mb-6 text-gray-700">
+                    <Icon className="w-5 h-5 text-current" />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-brand-navy mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed font-normal">
+                    {item.text}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Benefits;
