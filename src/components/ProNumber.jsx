@@ -15,7 +15,7 @@ const ProNumber = () => {
           
           {/* Colonne Gauche - Image d'illustration sur fond blanc */}
           <div ref={leftRef} className="lg:col-span-6">
-            <div className="clean-card p-6 sm:p-8 flex flex-col items-center justify-center">
+            <div className="clean-card p-4 sm:p-8 flex flex-col items-center justify-center">
               <img 
                 src="/assets/numero-pro/image-numero.png" 
                 alt="Numéro PRO GTS-Infotel" 
@@ -25,17 +25,17 @@ const ProNumber = () => {
                 }}
               />
               
-              {/* Canaux unifiés épurés sans icônes superflues */}
-              <div className="grid grid-cols-3 gap-3 w-full pt-4 border-t border-gray-100 text-center">
-                <div className="p-2.5 rounded-lg border border-gray-200 bg-white">
+              {/* Canaux unifiés épurés sans débordement sur mobile */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 w-full pt-4 border-t border-gray-100">
+                <div className="p-2.5 sm:p-3 rounded-lg border border-gray-200 bg-white flex sm:flex-col items-center justify-between sm:justify-center text-left sm:text-center">
                   <span className="text-sm font-semibold text-brand-navy block">Voix</span>
                   <span className="text-xs text-gray-500">Appels simultanés</span>
                 </div>
-                <div className="p-2.5 rounded-lg border border-gray-200 bg-white">
+                <div className="p-2.5 sm:p-3 rounded-lg border border-gray-200 bg-white flex sm:flex-col items-center justify-between sm:justify-center text-left sm:text-center">
                   <span className="text-sm font-semibold text-brand-navy block">SMS</span>
                   <span className="text-xs text-gray-500">API & Messagerie</span>
                 </div>
-                <div className="p-2.5 rounded-lg border border-gray-200 bg-white">
+                <div className="p-2.5 sm:p-3 rounded-lg border border-gray-200 bg-white flex sm:flex-col items-center justify-between sm:justify-center text-left sm:text-center">
                   <span className="text-sm font-semibold text-brand-navy block">WhatsApp</span>
                   <span className="text-xs text-gray-500">Business API</span>
                 </div>

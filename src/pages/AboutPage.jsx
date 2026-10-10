@@ -150,8 +150,8 @@ export default function AboutPage({ onContact, onNavigateHome }) {
             </p>
           </div>
 
-          <div className="clean-card p-8 sm:p-12 lg:p-16">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="clean-card p-4 sm:p-12 lg:p-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
               
               {/* Photo du Directeur & Filiation académique */}
               <div className="lg:col-span-5 flex flex-col items-center sm:items-start text-center sm:text-left">
@@ -173,19 +173,19 @@ export default function AboutPage({ onContact, onNavigateHome }) {
                   Docteur-Ingénieur · SUPELEC Paris · TÉLÉCOM Paris
                 </p>
 
-                {/* 3 Indicateurs clés épurés */}
-                <div className="grid grid-cols-3 gap-3 w-full pt-6 border-t border-gray-100 text-left">
-                  <div className="p-3 rounded-lg border border-gray-200 bg-white">
+                {/* 3 Indicateurs clés épurés sans débordement sur mobile */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 w-full pt-6 border-t border-gray-100">
+                  <div className="p-3 rounded-lg border border-gray-200 bg-white flex sm:flex-col items-center justify-between sm:justify-start text-left">
                     <span className="text-xl font-bold text-brand-navy block">40+</span>
-                    <span className="text-[11px] text-gray-500">Ans d'expérience</span>
+                    <span className="text-xs text-gray-500">Ans d'expérience</span>
                   </div>
-                  <div className="p-3 rounded-lg border border-gray-200 bg-white">
+                  <div className="p-3 rounded-lg border border-gray-200 bg-white flex sm:flex-col items-center justify-between sm:justify-start text-left">
                     <span className="text-xl font-bold text-brand-navy block">1997</span>
-                    <span className="text-[11px] text-gray-500">Pionnier GSM</span>
+                    <span className="text-xs text-gray-500">Pionnier GSM</span>
                   </div>
-                  <div className="p-3 rounded-lg border border-gray-200 bg-white">
+                  <div className="p-3 rounded-lg border border-gray-200 bg-white flex sm:flex-col items-center justify-between sm:justify-start text-left">
                     <span className="text-xl font-bold text-brand-orange block">2002</span>
-                    <span className="text-[11px] text-gray-500">Création GTS</span>
+                    <span className="text-xs text-gray-500">Création GTS</span>
                   </div>
                 </div>
               </div>
