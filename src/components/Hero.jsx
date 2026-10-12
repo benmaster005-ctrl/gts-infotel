@@ -12,7 +12,7 @@ export default function Hero({ onContact }) {
         {/* En-tête Hero sans dégradé avec grand espace blanc */}
         <div className="max-w-4xl animate-fade-in-up">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-navy leading-tight mb-8">
-            Standard virtuel & Numéros Professionnels pour entreprises.
+            {HERO.heading}
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl font-normal mb-10">
@@ -42,22 +42,22 @@ export default function Hero({ onContact }) {
         <div ref={trustRef} className="pt-10 border-t border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="clean-card p-4">
             <span className="text-sm font-semibold text-brand-navy block mb-0.5">Opérateur Agréé</span>
-            <span className="text-xs text-gray-600">Conformité ART Cameroun</span>
+            <span className="text-xs text-gray-600">Licence ART & Décret 2022</span>
           </div>
 
           <div className="clean-card p-4">
             <span className="text-sm font-semibold text-brand-navy block mb-0.5">Partenaire CAMTEL</span>
-            <span className="text-xs text-gray-600">Interconnexion directe</span>
+            <span className="text-xs text-gray-600">Interconnexion souveraine</span>
           </div>
 
           <div className="clean-card p-4">
             <span className="text-sm font-semibold text-brand-navy block mb-0.5">Réseau ProCom</span>
-            <span className="text-xs text-gray-600">Voix, SMS et messageries</span>
+            <span className="text-xs text-gray-600">Voix, SMS, WhatsApp & USSD</span>
           </div>
 
           <div className="clean-card p-4">
-            <span className="text-sm font-semibold text-brand-navy block mb-0.5">Support Dédié</span>
-            <span className="text-xs text-gray-600">Équipes basées à Douala & Yaoundé</span>
+            <span className="text-sm font-semibold text-brand-navy block mb-0.5">Support & Proximité</span>
+            <span className="text-xs text-gray-600">Équipes à Douala & Yaoundé</span>
           </div>
         </div>
 

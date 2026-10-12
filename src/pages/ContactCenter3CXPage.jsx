@@ -4,37 +4,37 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ADVANTAGES = [
   {
-    title: 'Simplicité',
-    desc: 'Déploiement rapide dans le Cloud et gestion en libre-service sans équipement matériel lourd sur votre site.',
+    title: 'Simplicité & Zéro CAPEX',
+    desc: 'Déploiement Cloud rapide en mode managé sans investissement matériel lourd, avec un modèle économique 100% OPEX prévisible.',
   },
   {
-    title: 'Efficacité',
-    desc: 'Paramétrage fin des scénarios pour router vos flux d’appels selon les horaires, la langue et la compétence des agents.',
+    title: 'Efficacité & Routage Métier',
+    desc: 'Scénarios SVI dynamiques pour router intelligemment vos flux d’appels selon les plages horaires, compétences et langues des agents.',
   },
   {
-    title: 'Maîtrise',
-    desc: 'Supervision des files d’attente et tableaux de bord en temps réel pour optimiser le temps de réponse et la satisfaction.',
+    title: 'Sécurité & Routes Directes',
+    desc: 'Acheminement certifié sur le réseau ProCom sans passer par des agrégateurs douteux ou des routes grises vulnérables à la fraude.',
   },
   {
-    title: 'Flexibilité',
-    desc: 'Évolutivité instantanée du nombre d’agents et de canaux selon la saisonnalité de vos campagnes.',
+    title: 'Flexibilité Omnicanale',
+    desc: 'Évolutivité instantanée du nombre d’agents et bascule fluide entre Voix HD, WhatsApp Business, SMS et Live Chat sans rupture.',
   },
 ];
 
 const SUPERVISOR_FEATURES = [
-  'Gestion intelligente des files d’attente et des affectations d’agents',
-  'Écoute discrète, chuchotement et intervention en direct lors des appels critiques',
-  'Wallboard & Switchboard : supervision dynamique de l’activité en temps réel',
-  'Rapports statistiques complets sur les SLA, durées d’attente et abandons',
+  'Gestion intelligente des files d’attente, priorisation des flux et affectation dynamique des agents',
+  'Écoute discrète, chuchotement et intervention en direct lors des appels sensibles ou transactions critiques',
+  'Wallboard & Switchboard temps réel : monitoring dynamique de la charge, des SLA et des temps de réponse',
+  'Rapports statistiques avancés, enregistrement des conversations et export des métriques de productivité 24/7',
 ];
 
 const AGENT_FEATURES = [
-  'Interface unifiée omnicanale : Téléphonie, Live Chat web, WhatsApp & SMS',
-  'Transfert d’échanges fluide vers d’autres collaborateurs avec historique complet',
-  'Fiches clients contextuelles avec remontée automatique lors de l’appel',
-  'Envoi et réception de documents numériques directement dans la session de chat',
-  'Journal d’appels et synchronisation avec les contacts de l’entreprise',
-  'Bascule instantanée d’une session chat vers un appel vocal sans coupure',
+  'Interface omnicanale unifiée : Téléphonie Voix HD, WhatsApp Business vérifié, Live Chat et SMS A2P',
+  'Identité d’émetteur officielle : émission d’appels et messages sous le Numéro PRO certifié de l’organisation',
+  'Remontée automatique de fiches clients contextuelles lors des appels pour personnaliser la prise en charge',
+  'Transferts d’échanges fluides entre collaborateurs avec transmission intégrale de l’historique conversationnel',
+  'Partage sécurisé de pièces jointes et documents directement dans la session de conversation',
+  'Bascule instantanée en un clic d’une session chat vers un appel vocal sans interruption de service',
 ];
 
 export default function ContactCenter3CXPage({ onContact, onNavigateHome }) {
@@ -64,7 +64,7 @@ export default function ContactCenter3CXPage({ onContact, onNavigateHome }) {
               </h1>
               
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-normal max-w-2xl">
-                Améliorez la performance de votre support et de vos téléconseillers grâce à la plateforme 3CX intégrée au réseau ProCom de GTS-Infotel. Téléphonie d'entreprise, SVI, messagerie WhatsApp et Live Chat unifiés.
+                Améliorez la performance de votre support et de vos téléconseillers grâce à la plateforme 3CX interconnectée au réseau ProCom de GTS-Infotel. Terminaison Voix HD directe, fin des routes grises non sécurisées, SVI intelligent, messagerie WhatsApp Business certifiée et Live Chat unifiés avec votre Numéro PRO officiel.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 pt-2">

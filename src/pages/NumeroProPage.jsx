@@ -4,29 +4,30 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ACCOUNTS = [
   {
-    title: 'Compte SIP Trunk',
-    desc: 'À interconnecter sur votre IPBX ou centre de contact pour émettre et recevoir vos appels voix simultanés sans limitation physique.',
+    title: 'Compte SIP Trunk Haute Capacité',
+    desc: 'Interconnexion directe de classe opérateur pour votre IPBX physique ou Cloud (Mobinawa-Business, 3CX, etc.). Émettez et recevez vos appels Voix HD simultanés sans saturation ni équipement filaire.',
   },
   {
-    title: 'Compte API SMS',
-    desc: 'Intégration directe via API HTTP ou SMPP pour l’envoi de notifications (SMS-MT) et la réception de messages clients (SMS-MO).',
+    title: 'Compte API SMS A2P Certifié',
+    desc: 'Passerelle HTTP REST ou SMPP haute disponibilité pour l’envoi de notifications critiques, alertes et codes OTP fiabilisés (SMS-MT) ainsi que la réception client (SMS-MO), sans passer par les routes grises.',
   },
   {
-    title: 'Portail Client Selfcare',
-    desc: 'Accès web sécurisé pour piloter vos consommations, consulter les rapports d’appels en temps réel et gérer vos soldes de crédits.',
+    title: 'Compte WhatsApp Business & Extranet',
+    desc: 'Activation officielle de votre Numéro PRO sur WhatsApp Business API et accès au portail web Selfcare pour piloter vos consommations, consulter les CDR en temps réel et superviser vos flux 24/7.',
   },
 ];
 
 const FEATURES = [
-  'Intégration aisée sur tout type de plateforme VoIP, SMS & IT/CRM incluant WhatsApp et Telegram, à travers tous les réseaux Internet',
-  'Accessible à tous les abonnés mobiles via leurs réseaux GSM ou Internet',
-  'Supporte plusieurs appels simultanés (entrants et sortants) : plus aucun appel perdu',
-  'Améliore l\'expérience utilisateur pour vos clients et vos collaborateurs',
-  'Appels et SMS gratuits et illimités entre les numéros GTS du réseau ProCom',
-  'Renforce l\'identité numérique officielle et certifiée de votre organisation',
-  'Remplace définitivement les numéros GSM personnels non autorisés et les lignes filaires cuivre obsolètes',
-  'Réduction de plus de 50% du coût des communications vers tous les opérateurs locaux',
-  'Accès Web transparent aux rapports d’audience, CDR et statistiques de trafic 24/7',
+  'Identifiant officiel et attribut KYC de référence faisant dialoguer le RCCM, l’administration fiscale, les banques et les fintechs',
+  'Conformité légale stricte avec le décret présidentiel n°2022/10902 sur les ressources en numérotation et les services A2P',
+  'Rempart contre l’usurpation d’identité de marque et les fraudes sur les comptes Mobile Money générées par les SIM anonymes',
+  'Fin de la dépendance aux numéros mobiles personnels des employés : stricte conformité avec la loi sur la protection des données',
+  'Interconnexion directe avec CAMTEL garantissant un acheminement souverain et sans coupure vers tous les réseaux GSM et fixes',
+  'Convergence multicanale sur un identifiant unique : Voix HD, SMS A2P transactionnel, WhatsApp Business et codes marchands USSD',
+  'Gestion d’appels simultanés illimités entrants et sortants : ne perdez plus aucun appel de prospect ou client',
+  'Communications voix et SMS gratuites et illimitées entre tous les numéros PRO connectés au réseau ProCom',
+  'Centralisation et rétention locale des données de communication professionnelle, préparant le déploiement d’une IA africaine souveraine',
+  'Accès Web transparent et continu aux rapports d’audience, statistiques de trafic, SLA et traçabilité 24/7',
 ];
 
 export default function NumeroProPage({ onContact, onNavigateHome }) {
@@ -52,10 +53,10 @@ export default function NumeroProPage({ onContact, onNavigateHome }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-7 space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-navy leading-tight">
-                Renforcez l’identité numérique de votre entreprise.
+                L’identité téléphonique et numérique officielle des personnes morales.
               </h1>
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-normal max-w-2xl">
-                Fort de son partenariat stratégique avec l’opérateur historique <strong>CAMTEL</strong>, GTS-Infotel attribue aux entreprises des numéros fixes virtuels dédiés à la convergence Voix, SMS et plateformes collaboratives.
+                Conforme au décret n°2022/10902 et fort de son interconnexion stratégique avec l'opérateur historique <strong>CAMTEL</strong>, GTS-Infotel dote les organisations d'un <strong>Numéro PRO</strong> (fixe virtuel multicanal). Cet identifiant universel et souverain certifie votre entreprise, unifie vos flux Voix, SMS & WhatsApp Business, et protège vos données stratégiques.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 pt-2">

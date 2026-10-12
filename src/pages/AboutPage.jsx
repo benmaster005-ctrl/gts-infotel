@@ -4,42 +4,47 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const MILESTONES = [
   {
+    year: '1986 – 1997',
+    title: 'Pionnier GSM & R&D Télécoms en France',
+    desc: 'Travaux de recherche et développement pionniers sur les réseaux mobiles 2G/GSM en France (SUPELEC & Télécom Paris), participant aux fondations de la révolution mobile.',
+  },
+  {
     year: '2002',
     title: 'Fondation de GTS-Infotel Cameroun',
-    desc: 'Création de la 1ère filiale par GTS AFRICA pour introduire sur le marché camerounais les numéros virtuels dédiés aux services de communications à valeur ajoutée.',
+    desc: 'Création de la 1ère filiale par le groupe GTS AFRICA pour introduire au Cameroun les numéros virtuels dédiés aux services de communications à valeur ajoutée (SVA/A2P).',
   },
   {
-    year: '2002 – 2017',
-    title: '3 Licences SVA obtenues',
-    desc: 'Attributions successives des autorisations et licences par le Ministère des Postes et Télécommunications et l’ART, consolidant l’expertise technique en Voix & SMS.',
-  },
-  {
-    year: '2021',
-    title: 'Partenariat stratégique avec CAMTEL',
-    desc: 'Signature de l’accord d’interconnexion directe avec l’opérateur historique public national et lancement officiel du réseau ProCom au Cameroun.',
+    year: '2017 – 2021',
+    title: 'Partenariat CAMTEL & Alliance APEBI–REPTIC',
+    desc: 'Signature de l’accord d’interconnexion directe avec l’opérateur historique public CAMTEL pour lancer le réseau ProCom, et convention historique Sud-Sud APEBI–REPTIC.',
   },
   {
     year: '2022',
-    title: 'Décret officiel sur la numérotation',
-    desc: 'Consécration réglementaire instaurant la catégorie des numéros fixes virtuels dédiés à l’identification et à la joignabilité officielle des personnes morales.',
+    title: 'Décret n°2022/10902 sur la numérotation',
+    desc: 'Consécration réglementaire instaurant la catégorie officielle des numéros fixes virtuels dédiés à l’identification, aux services A2P et à la joignabilité légale des personnes morales.',
+  },
+  {
+    year: '2025 – 2026',
+    title: 'FADB, Alliance CIRPACK & Lancement Mobinawa',
+    desc: 'Co-fondation de la Fédération des Entreprises Numériques Africaines (FADB), partenariat cœur de réseau avec CIRPACK, lancement de Mobinawa à PROMOTE 2026 et tribune GITEX Africa 2026 sur l’IA souveraine.',
   },
 ];
 
 const VALUES = [
   {
     icon: ShieldCheck,
-    title: 'Conformité & Souveraineté',
-    desc: 'Opérateur titulaire d’une licence ART Catégorie 1 garantissant la pleine sécurité et légalité de vos communications d’entreprise.',
+    title: 'Souveraineté & Confiance Numérique',
+    desc: 'Opérateur titulaire d’une licence ART Catégorie 1. Nous érigeons le Numéro PRO en attribut KYC commun pour éliminer l’usurpation d’identité et sécuriser l’économie numérique.',
   },
   {
     icon: Cpu,
-    title: 'Technologie COMTECH Avancée',
-    desc: 'Plateformes logicielles propriétaires et standards certifiés (3CX, Cirpack) unifiant Voix, SMS et WhatsApp au sein d’une infrastructure robuste.',
+    title: 'Technologies COMTECH & Cœur de Réseau',
+    desc: 'Infrastructures Softswitch et IMSaaS de classe opérateur développées avec CIRPACK et 3CX, garantissant la maîtrise des données de communication sur le sol africain.',
   },
   {
     icon: Clock,
-    title: '20+ Ans d’Excellence Locale',
-    desc: 'Une présence pérenne au Cameroun au service des institutions, grands comptes, PME et startups pour moderniser leur relation client.',
+    title: 'Engagement Panafricain & ZLECAf',
+    desc: 'Plus de 20 ans au Cameroun et une action résolue (REPTIC.CM, FADB) pour un réseau de communication professionnelle unifié permettant d’interagir à coût local au-delà des frontières.',
   },
 ];
 
@@ -195,19 +200,19 @@ export default function AboutPage({ onContact, onNavigateHome }) {
                 
                 <blockquote className="border-l-2 border-brand-orange pl-6 py-2">
                   <p className="text-lg sm:text-xl text-brand-navy font-medium leading-relaxed italic">
-                    « Pas d’économie numérique inclusive et souveraine sans identité téléphonique unique et officielle des entreprises. »
+                    « Pas d’économie numérique souveraine sans identité numérique fiable des entreprises ! Les données de communication professionnelle constituent l'actif stratégique indispensable pour bâtir une IA africaine utile et autonome. »
                   </p>
                 </blockquote>
 
                 <div className="space-y-4 text-base text-gray-600 font-normal leading-relaxed">
                   <p>
-                    Diplômé de <strong>SUPELEC</strong> et de <strong>Télécom Paris</strong>, le Dr.-Ing. Pierre-François KAMANOU cumule plus de 40 ans d'expérience pionnière dans les télécommunications internationales, notamment dans la planification et le déploiement des réseaux mobiles cellulaires et les architectures à valeur ajoutée.
+                    Diplômé de <strong>SUPELEC Paris</strong> et de <strong>Télécom Paris</strong>, le Dr.-Ing. Pierre-François KAMANOU capitalise sur plus de 40 ans d'expérience pionnière dans les télécommunications : de la recherche & développement des réseaux mobiles cellulaires 2G/GSM en France jusqu’à la conception d'architectures ComTech et de cœurs de réseau virtuels en Afrique.
                   </p>
                   <p>
-                    Dès 2002, il fonde <strong>GTS-Infotel</strong> au Cameroun avec l'ambition de doter chaque organisation d'un attribut numérique fondamental : le <strong>Numéro PRO</strong>. Cette démarche novatrice a conduit à la création du réseau <strong>ProCom</strong>, connectant les entreprises directement à leurs clients sur mobile et voix sur IP.
+                    Dès 2002, il fonde <strong>GTS-Infotel</strong> au Cameroun, introduisant la téléphonie fixe virtuelle sur le continent. Acteur incontournable de l’écosystème numérique africain, il est également <strong>Président du REPTIC.CM</strong> (Réseau des Professionnels des TIC du Cameroun) et membre co-fondateur de la <strong>FADB</strong> (Federation of African Digital Businesses), portée avec l'APEBI et des organisations de tout le continent.
                   </p>
                   <p>
-                    Sous son leadership, GTS-Infotel a su nouer des partenariats stratégiques majeurs, notamment l'interconnexion avec <strong>CAMTEL</strong> et l'intégration de technologies internationales éprouvées (<strong>3CX</strong>, <strong>Cirpack</strong>).
+                    Régulièrement sollicité comme expert de référence lors de forums panafricains majeurs (<strong>GITEX Africa</strong> au Forum IA & Souveraineté Numérique, <strong>CEMAC Talks</strong>, <strong>FGI-Cameroun</strong>, ateliers de l'<strong>UIT</strong>), il milite pour la reconnaissance du <strong>Numéro PRO</strong> comme identifiant universel des personnes morales, attribut KYC commun et garant de la souveraineté des données face aux monopoles technologiques des GAFAM.
                   </p>
                 </div>
 

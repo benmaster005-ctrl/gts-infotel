@@ -14,84 +14,86 @@ export const NAV_LINKS = [
 ];
 
 export const HERO = {
-  heading: 'Votre entreprise mérite une identité téléphonique professionnelle.',
-  lead: "De l'identité téléphonique à la gestion des communications et de la relation client, GTS Africa propose un ensemble de solutions adaptées aux besoins des organisations.",
+  heading: "L'identité téléphonique et numérique universelle des entreprises en Afrique.",
+  lead: "De l'attribution de Numéros PRO (fixes virtuels multicanaux) au déploiement du réseau souverain ProCom, GTS-Infotel bâtit l'infrastructure télécom de confiance pour l'identification des personnes morales, la communication unifiée et l'interopérabilité des services numériques.",
   cta: 'Demander une démo',
   ctaSecondary: 'Découvrir nos solutions',
 };
 
 export const BENEFITS = {
-  heading: "Un numéro professionnel, ce n'est pas qu'un numéro.",
+  heading: "Le Numéro PRO : bien plus qu'un numéro, le socle de votre confiance numérique.",
   items: [
     {
-      title: 'Identifiez votre entreprise',
-      text: "Disposez d'une identité téléphonique professionnelle dédiée, reconnue par vos clients et partenaires.",
+      title: "Identité officielle des personnes morales",
+      text: "Tout comme le mobile identifie la personne physique, le Numéro PRO consacre l'identité officielle de l'entreprise. Attribut KYC de référence, il dialogue avec le RCCM, le fisc, les banques et les fintechs.",
     },
     {
-      title: 'Professionnalisez vos communications',
-      text: "Intégrez votre numéro à vos usages professionnels et renforcez la crédibilité de chaque échange.",
+      title: 'Souveraineté & protection des données',
+      text: "Reprenez la maîtrise de vos communications professionnelles. Séparez hermétiquement vie pro et vie perso, et protégez vos données stratégiques face à la dépendance aux plateformes OTT étrangères.",
     },
     {
-      title: 'Centralisez vos interactions',
-      text: "Structurez et centralisez la gestion de vos communications et interactions avec vos clients sur une plateforme unifiée.",
+      title: "Sécurité A2P & rempart anti-fraude",
+      text: "Éliminez l'usurpation d'identité et les fraudes Mobile Money liées aux SIM anonymes et boîtiers SIMBox. Bénéficiez de routes directes certifiées pour vos flux Voix, SMS OTP et transactions.",
     },
   ],
 };
 
 export const PRO_NUMBER = {
-  heading: 'Numéros fixes virtuels',
-  subheading: 'Une identité téléphonique professionnelle pour votre entreprise.',
-  text: "Obtenez un numéro fixe virtuel permettant à votre organisation de disposer d'une identité téléphonique professionnelle pour ses communications. Un numéro, trois canaux : Voix, SMS, WhatsApp.",
+  heading: 'Numéros PRO Fixes Virtuels',
+  subheading: 'L’identifiant numérique universel et souverain pour votre entreprise.',
+  text: "Conforme au décret n°2022/10902 sur les ressources en numérotation, le Numéro PRO attribue à votre organisation un identifiant fixe virtuel multicanal officiel (Voix, SMS, WhatsApp Business, USSD). Il garantit l'authenticité de vos échanges, centralise les données de vos équipes et renforce la crédibilité de votre marque.",
   idealFor: [
-    'Identifier votre entreprise',
-    'Professionnaliser vos communications',
-    "Disposer d'une identité téléphonique dédiée",
-    'Intégrer votre numéro à vos usages professionnels',
+    'Authentifier officiellement la personne morale (attribut KYC)',
+    'Séparer hermétiquement identité professionnelle et mobile personnel',
+    'Sécuriser l’envoi de codes OTP SMS et notifications transactionnelles',
+    'Prévenir l’usurpation d’identité de marque et les fraudes Mobile Money',
   ],
   capabilities: [
-    { label: 'Disponible sur tous les réseaux Internet & mobiles' },
-    { label: 'Accessible aux abonnés fixes & mobiles' },
-    { label: 'Appels simultanés entrants & sortants' },
-    { label: "Amélioration de l'expérience utilisateur" },
-    { label: 'Intégration aisée sur toute plateforme VoIP, SMS & IT' },
-    { label: 'Rapports & statistiques de trafic Voix, SMS' },
-    { label: "Renforce l'identité numérique de l'entreprise" },
+    { label: "Identifiant officiel et attribut KYC de référence des personnes morales" },
+    { label: "Conforme au décret n°2022/10902 sur les ressources en numérotation" },
+    { label: "Accessible sans restriction à tous les abonnés fixes & mobiles" },
+    { label: "Multi-canaux unifiés : Voix HD, SMS A2P, WhatsApp Business & USSD" },
+    { label: "Appels simultanés illimités entrants et sortants sans saturation" },
+    { label: "Intégration aisée sur plateformes SIP, IPBX Cloud, CRM & APIs IT" },
+    { label: "Centralisation souveraine des données pour préparer vos modèles d’IA" },
+    { label: "Rapports détaillés d’audience, CDR en temps réel et traçabilité 24/7" },
+    { label: "Interopérabilité nationale et transfrontalière (CEMAC & ZLECAf)" },
   ],
-  channels: ['Voix', 'SMS', 'WhatsApp'],
+  channels: ['Voix HD', 'SMS A2P', 'WhatsApp Business', 'USSD'],
 };
 
 export const PROCOM = {
   label: 'Réseau ProCom',
-  tagline: 'the Online Communication on PRO Numbers',
-  heading: 'Un numéro PRO.\nPlusieurs possibilités.',
-  text: "Recevez et émettez des appels professionnels depuis votre smartphone ou PC grâce au réseau ProCom, sans investissement matériel. Un standard de classe opérateur accessible partout.",
+  tagline: 'The Sovereign Business Communication Network on PRO Numbers',
+  heading: 'Un réseau panafricain de communication professionnelle unifiée.',
+  text: "Développé par GTS Africa en partenariat avec l'opérateur historique CAMTEL et propulsé par la technologie Softswitch & IMS de CIRPACK, ProCom est un réseau de type FVNO / Enterprise MVNO conçu pour connecter les organisations à coût local par-delà les frontières nationales et structurer la confiance numérique à l'échelle de la CEMAC et de la ZLECAf.",
   features: [
-    'Numéro PRO personnalisé & universel',
-    'Standard vocal interactif (SVI)',
-    'Enregistrement des appels & supervision',
-    'Multi-postes et télétravail unifié',
-    'Transfert et routage intelligent',
-    'Statistiques et rapports en temps réel',
+    'Numéro PRO officiel, vérifiable et multicanal (Voix, SMS, USSD, WhatsApp)',
+    'Standard téléphonique virtuel (CloudPBX) & communications unifiées (UCaaS)',
+    'Alternative souveraine aux plateformes OTT pour la maîtrise des données métiers',
+    'Passerelles directes de terminaison Voix et SMS A2P sans routes grises',
+    'Socle de données souveraines préparant l’intégration de modèles d’IA locaux',
+    'Routage intelligent, statistiques en temps réel et supervision 24/7',
   ],
 };
 
 export const SOLUTIONS = {
   surtitle: 'CATALOGUE OFFICIEL DES SOLUTIONS PROCOM',
   heading: 'Solutions de communication professionnelle',
-  lead: "Des solutions conçues pour chaque besoin d'organisation et de transformation numérique.",
+  lead: "Des solutions de classe opérateur pour chaque besoin d’organisation, de relation client et de souveraineté numérique.",
   items: [
     {
       id: 'numero-pro',
       title: 'Numéro PRO',
       badge: 'Identité Téléphonique Multicanale',
       image: '/assets/numero-pro-badge.png',
-      tagline: 'Un numéro fixe virtuel multicanal (Voix, SMS, WhatsApp, Mobinawa).',
-      text: "Attribué aux organisations et professionnels pour centraliser toutes leurs communications conversationnelles, transactionnelles et promotionnelles, via diverses plateformes numériques.",
+      tagline: 'Identifiant téléphonique et numérique officiel des personnes morales.',
+      text: "Attribué aux entreprises et institutions pour unifier leurs communications et transactions (Voix, SMS, WhatsApp, USSD). Reconnu comme l’attribut KYC commun interconnectable avec les registres de commerce, impôts, banques et fintechs selon le décret n°2022/10902.",
       features: [
-        'Standard téléphonique virtuel',
-        'Centre de contact client',
-        'Intégration CRM & Systèmes IT',
-        'Connexion réseaux sociaux & WhatsApp',
+        'Standard téléphonique virtuel & SIP Trunking haute capacité',
+        'Attribut KYC de référence certifié contre l’usurpation d’identité',
+        'Intégration native CRM, ERP & systèmes d’information métiers',
+        'Support multicanal Voix HD, SMS A2P et WhatsApp Business API',
       ],
       cta: 'Commander un Numéro PRO',
     },
@@ -100,13 +102,13 @@ export const SOLUTIONS = {
       title: 'Mobinawa',
       badge: 'Application Mobile Panafricaine',
       image: '/assets/mobinawa-banner.jpg',
-      tagline: 'Téléphonie et communication unifiée dédiée aux professionnels.',
-      text: "Application disponible gratuitement sur Android et iOS permettant des échanges B2B et B2C où les professionnels sont identifiés par leurs nom/fonction/organisation plutôt que par leurs numéros personnels.",
+      tagline: 'L’application mobile souveraine de communication professionnelle.',
+      text: "Lancée lors de PROMOTE 2026, Mobinawa est la première application mobile panafricaine conçue comme une alternative souveraine aux applications grand public (WhatsApp, etc.). Elle permet aux collaborateurs et indépendants d'échanger sous leur Nom, Fonction et Organisation, et non sous leur numéro personnel.",
       features: [
-        'Profil Consommateur : activation via OTP SMS/WhatsApp',
-        'Profil Indépendant : souscription Mobinawa-PRO',
-        'Profil Collaborateur : intégré à Mobinawa-Business',
-        'Annuaire ProCom : recherche d’entreprises et accès direct aux services numériques',
+        'Profil Consommateur : joignabilité et accès direct aux services des entreprises',
+        'Profil Indépendant & Diaspora : votre Numéro PRO local sur smartphone',
+        'Profil Entreprise : collaboration d’équipe, CloudPBX et annuaire certifié',
+        'Sécurisation et rétention locale des données de communication professionnelle',
       ],
       cta: 'Découvrir Mobinawa',
       ctaHref: 'https://www.mobinawa.com/',
@@ -116,13 +118,13 @@ export const SOLUTIONS = {
       title: 'Mobinawa-PRO',
       badge: 'Pour Professionnels & Diaspora',
       image: '/assets/mobinawa-mw.png',
-      tagline: 'Votre Numéro PRO directement sur smartphone pour tous vos appels professionnels.',
-      text: "Service permettant à tout professionnel, en local ou dans la diaspora, de disposer d'un Numéro PRO sur son application Mobinawa pour ses appels professionnels.",
+      tagline: 'Votre Numéro PRO directement sur smartphone, localement et pour la diaspora.',
+      text: "Permet aux indépendants, commerçants, consultants et membres de la diaspora de disposer d'un Numéro PRO sur l'application Mobinawa pour émettre et recevoir leurs appels professionnels aux tarifs locaux, sans exposer leur vie privée.",
       features: [
-        'Idéal pour Professions libérales',
-        'Commerçants & Distributeurs',
-        'Entrepreneurs & Startups',
-        'Consultants indépendants & Diaspora',
+        'Idéal pour professions libérales, consultants & startups',
+        'Commerçants et distributeurs : joignabilité certifiée client',
+        'Diaspora : communication et gestion d’activités en Afrique au tarif local',
+        'Séparation stricte et étanche entre vie pro et vie perso',
       ],
       cta: 'Souscrire à Mobinawa-PRO',
       ctaHref: 'https://www.mobinawa.com/',
@@ -132,13 +134,13 @@ export const SOLUTIONS = {
       title: 'Mobinawa-Business',
       badge: 'Plateforme UCaaS & IPBX Cloud',
       image: '/assets/mobinawa-business.png',
-      tagline: 'Standard téléphonique virtuel (IPBX) et communications unifiées pour entreprises.',
-      text: "Centralise l'ensemble des communications professionnelles des collaborateurs via l'application Mobinawa sur smartphone et/ou PC. Adaptée aux organisations de toutes tailles.",
+      tagline: 'Standard virtuel CloudPBX & plateforme UCaaS développée avec CIRPACK.',
+      text: "Plateforme de téléphonie cloud et communications unifiées opérée en partenariat avec CIRPACK. Elle centralise et sécurise l'intégralité des flux de communication d'entreprise (voix, messagerie, visioconférence) tout en conservant les données au sein d'infrastructures souveraines pour alimenter vos processus et l'IA locale.",
       features: [
-        'Contacts internes/externes, groupes de discussion et visioconférence',
-        'Communications audio/vidéo et messagerie multimédia',
-        'Annuaire d’entreprise et appels téléphoniques professionnels',
-        'Émission et réception d’appels locaux avec Numéro PRO',
+        'Téléphonie d’entreprise CloudPBX sans investissement matériel (zéro CAPEX)',
+        'Messagerie collaborative, visioconférence et annuaire d’entreprise sécurisé',
+        'Émission et réception d’appels multicanaux avec le Numéro PRO officiel',
+        'Conformité stricte de protection des données et cloud souverain',
       ],
       cta: 'Déployer Mobinawa-Business',
       ctaHref: 'https://www.mobinawa.com/',
@@ -148,13 +150,13 @@ export const SOLUTIONS = {
       title: '3CX-CallCenter',
       badge: 'Centre d’Appels & WhatsApp TPE/PME',
       image: '/assets/3cx-logo.svg',
-      tagline: 'Centre d’appels et de messagerie WhatsApp pour équipes de support.',
-      text: "Plateforme intégrée en option à Mobinawa-Business, adaptée aux TPE/PMEs souhaitant améliorer les performances de leur personnel interne de gestion du centre de service clients.",
+      tagline: 'Centre de contact omnicanal certifié 3CX interconnecté au réseau ProCom.',
+      text: "Solution clé en main pour équipes de support et de service client. Intégrée au réseau ProCom de GTS-Infotel, elle assure un acheminement direct et sécurisé des appels et flux WhatsApp, évitant les surcoûts et déperditions des routes grises non certifiées.",
       features: [
-        'Standard Vocal Interactif (SVI)',
-        'Gestion des files d’attente intelligentes',
-        'Supervision en temps réel des agents',
-        'Enregistrement d’appels et campagnes d’appels sortants',
+        'Standard Vocal Interactif (SVI) dynamique et routage de compétences',
+        'Gestion des files d’attente et supervision en direct des téléconseillers',
+        'Intégration unifiée Téléphonie, Live Chat web et WhatsApp Business',
+        'Enregistrement d’appels, rapports de SLA et campagnes sortantes',
       ],
       cta: 'Découvrir 3CX-CallCenter',
     },
@@ -163,13 +165,13 @@ export const SOLUTIONS = {
       title: 'DigiContacts',
       badge: 'Centre de Contact Omnicanal Grandes Entreprises',
       image: '/assets/digicontacts-logo.png',
-      tagline: 'Plateforme omnicanale Voix, SMS, WhatsApp, Email avec CRM intégré.',
-      text: "Déployable dans le cloud ou sur site, et intégrable à Mobinawa-Business, particulièrement adaptée aux grandes organisations ayant des besoins avancés de relation client et d'intégration à leur SI.",
+      tagline: 'Plateforme omnicanale CRM & relation client pour grandes organisations et administrations.',
+      text: "Déployable dans le cloud souverain (notamment au Data Center de Zamengoé) ou sur site, couplant Voix, SMS, WhatsApp et Email avec CRM intégré et interconnexion profonde aux systèmes d'information critiques.",
       features: [
-        'Omnicanalité complète : Voix, SMS, WhatsApp, Email',
-        'Gestion de tickets et chatbot WhatsApp automatisé',
-        'Campagnes d’appels et de SMS en masse',
-        'Fiches clients personnalisables et interconnexion aux processus métiers',
+        'Omnicanalité totale : Voix, SMS A2P, WhatsApp Business, Webchat, Email',
+        'Chatbot interactif, gestion de tickets et campagnes automatisées',
+        'Fiches clients 360° et interconnexion aux bases de données métiers',
+        'Hébergement souverain garantissant l’intégrité et la confidentialité des données',
       ],
       cta: 'Découvrir DigiContacts',
       ctaHref: 'https://www.digicontacts.net/',
@@ -177,15 +179,15 @@ export const SOLUTIONS = {
     {
       id: 'procom-crm',
       title: 'ProComCRM',
-      badge: 'CRM Omnicanal & Campagnes',
+      badge: 'CRM Omnicanal & Données Stratégiques',
       image: '/assets/procom-logo.png',
-      tagline: 'Gestion complète du parcours client, de la prospection à la fidélisation.',
-      text: "Intégré en option à 3CX-CallCenter, ProComCRM offre une gestion centralisée de fiches clients personnalisables et s'intègre au système d'information de l'entreprise pour automatiser les processus métiers.",
+      tagline: 'Gestion du cycle de vie client, automatisation omnicanale et traçabilité.',
+      text: "Connecté nativement à vos Numéros PRO et plateformes de communication, ProComCRM structure l'ensemble des interactions avec les usagers, transforme les flux d'appels et messages en actifs de données exploitables et prépare vos services aux agents d'IA conversationnelle.",
       features: [
-        'Module complet de campagnes marketing omnicanales',
-        'Suivi du cycle de vie client de bout en bout',
-        'Fiches clients enrichies et automatisées',
-        'Synchronisation avec le système d’information',
+        'Centralisation et traçabilité de toutes les interactions clients et usagers',
+        'Campagnes marketing et transactionnelles omnicanales ciblées',
+        'Synchronisation par API avec le Système d’Information de l’organisation',
+        'Structure et fiabilise les données pour l’automatisation et l’IA d’entreprise',
       ],
       cta: 'Découvrir ProComCRM',
     },
@@ -194,30 +196,30 @@ export const SOLUTIONS = {
 
 export const WHY_GTS = {
   heading: 'Pourquoi choisir GTS-Infotel',
-  text: "1er opérateur télécom alternatif de numéros fixes virtuels multi-services des entreprises au Cameroun. Infrastructure robuste, conformité réglementaire et support local depuis plus de 20 ans.",
+  text: "1er opérateur télécom alternatif de numéros fixes virtuels et acteur ComTech pionnier en Afrique. Plus de 20 ans d'expertise au Cameroun portée par une vision d'indépendance technologique, d'infrastructures souveraines et de coopération panafricaine.",
   guarantees: [
     {
-      title: "Partenariat Stratégique CAMTEL",
-      desc: "Interconnexion directe avec l'opérateur public national CAMTEL garantissant la souveraineté, la stabilité des routes et une couverture totale au Cameroun."
+      title: "Partenariat Stratégique CAMTEL & Souveraineté",
+      desc: "Interconnexion directe avec l'opérateur public national CAMTEL. Accès direct au réseau commuté public et synergie avec le Data Center national de Zamengoé (Tier III) pour l'hébergement souverain des données de communication."
     },
     {
-      title: "Partenariat Technologique 3CX Certifié",
-      desc: "Déploiement d'architectures CloudPBX et centres de contacts unifiés certifiés 3CX avec QoS et haute disponibilité."
+      title: "Partenariats Technologiques Cœur de Réseau (CIRPACK & 3CX)",
+      desc: "Cœur de réseau de classe opérateur développé avec CIRPACK (Softswitch, IMSaaS, VoLTE/VoNR) et communications unifiées certifiées 3CX, alliant robustesse industrielle et modèle économique 100% OPEX prévisible."
     },
     {
-      title: "Conformité & Licence Réglementaire ART Catégorie 1",
-      desc: "Opérateur agréé par l'Agence de Régulation des Télécommunications (ART) du Cameroun sous le régime officiel de Catégorie 1."
+      title: "Agrément ART Catégorie 1 & Décret 2022",
+      desc: "Opérateur titulaire de la Licence Catégorie 1 délivrée par l'Agence de Régulation des Télécommunications (ART) du Cameroun et pionnier de l'opérationnalisation du décret n°2022/10902 sur les ressources en numérotation A2P."
     },
     {
-      title: "Support Technique & Proximité Locale 24/7",
-      desc: "Équipes d'ingénieurs et techniciens basées à Yaoundé et Douala pour une assistance réactive 24h/24 sans intermédiaire."
+      title: "Engagements Panafricains & Écosystème Local",
+      desc: "Gouvernance active au sein du REPTIC.CM et membre fondateur de la FADB (Federation of African Digital Businesses), militante pour la compétitivité des PME Tech locales, la protection des données et l'intégration ZLECAf."
     }
   ],
   stats: [
-    { value: '20+', label: "Années d'expérience" },
-    { value: 'Pionnier', label: 'Télécom VAS en Afrique' },
-    { value: 'CAMTEL', label: 'Interconnexion Stratégique' },
-    { value: 'Cat. 1', label: 'Licence ART Cameroun' },
+    { value: '40+', label: "Ans d'expertise pionnière" },
+    { value: 'N°1', label: 'Opérateur Fixe Virtuel (FVNO)' },
+    { value: 'CAMTEL', label: 'Interconnexion Nationale' },
+    { value: 'Cat. 1', label: 'Licence ART & Décret 2022' },
   ],
 };
 
@@ -225,31 +227,31 @@ export const PARTNERS = [
   {
     name: 'CAMTEL',
     category: 'Partenaire Réseau Stratégique',
-    desc: "Opérateur historique de téléphonie fixe au Cameroun · Décret présidentiel 2022",
+    desc: "Opérateur historique public national · Hub d'interconnexion multicanale (Voix, SMS, USSD) & Data Center souverain de Zamengoé (Tier III)",
     logo: '/assets/camtel-logo.png',
   },
   {
     name: 'CIRPACK',
     category: 'Partenaire Technologique Cœur de Réseau',
-    desc: "Infrastructure Softswitch & Core Network télécom de classe opérateur",
+    desc: "Éditeur télécom européen de référence · Softswitch, IMSaaS, VoLTE/VoNR & plateforme de communications unifiées souveraines",
     logo: '/assets/cirpack-logo.jpg',
   },
   {
     name: '3CX',
     category: 'Partenaire Technologique Mondial',
-    desc: "Plateforme de communications unifiées & CloudPBX 3CX-CallCenter",
+    desc: "Plateforme leader de communications unifiées & CloudPBX 3CX-CallCenter certifiée pour le support et les centres d'appels",
     logo: '/assets/3cx-logo.svg',
   },
   {
     name: 'DigiContacts',
     category: 'Partenaire Centre de Contact Omnicanal',
-    desc: "Plateforme omnicanale CRM & Service Client pour grandes organisations",
+    desc: "Plateforme omnicanale CRM & service client pour grandes organisations et administrations publiques",
     logo: '/assets/digicontacts-logo.png',
   },
   {
     name: 'ART Cameroun',
     category: 'Autorité de Régulation',
-    desc: "Agence de Régulation des Télécommunications · Licence Officielle Catégorie 1",
+    desc: "Agence de Régulation des Télécommunications · Licence Officielle Catégorie 1 & Opérationnalisation du décret n°2022/10902",
     logo: '/assets/art-logo.jpg',
   },
 ];
@@ -260,41 +262,45 @@ export const PROCESS = {
     {
       num: '01',
       title: 'Consultation & Audit',
-      text: "Analyse de vos flux d'appels et recommandation de l'architecture idéale.",
+      text: "Analyse de vos flux de communication, identification de vos besoins KYC et recommandation de l'architecture idéale.",
     },
     {
       num: '02',
-      title: 'Configuration & Test',
-      text: 'Attribution de votre numéro, paramétrage du SVI et tests de qualité audio.',
+      title: 'Attribution & Configuration',
+      text: 'Attribution de votre Numéro PRO officiel, paramétrage du SVI, raccordement SIP/API et tests de qualité de service.',
     },
     {
       num: '03',
-      title: 'Lancement & Support',
-      text: 'Mise en service immédiate et accompagnement technique continu.',
+      title: 'Lancement & Support Dédié',
+      text: 'Mise en service sans rupture d’activité et accompagnement technique continu par nos ingénieurs à Douala et Yaoundé.',
     },
   ],
 };
 
 export const FAQ_ITEMS = [
   {
-    q: "Qu'est-ce qu'un numéro fixe virtuel ?",
-    a: "Un numéro fixe virtuel est un numéro téléphonique professionnel hébergé dans le cloud. Il vous permet de disposer d'une identité téléphonique dédiée sans infrastructure physique, avec des fonctionnalités avancées : SVI, musique d'attente, renvoi d'appels et multi-canaux (Voix, SMS, WhatsApp).",
+    q: "Qu'est-ce qu'un Numéro PRO fixe virtuel et en quoi diffère-t-il d'un numéro mobile ?",
+    a: "Tout comme le numéro mobile avec code OTP SMS authentifie une personne physique, le Numéro PRO fixe virtuel constitue l'identifiant officiel et vérifiable de la personne morale. Contrairement aux numéros mobiles personnels des employés qui créent la confusion, compromettent la sécurité et exposent l'entreprise à la fraude, le Numéro PRO rattache institutionnellement l'ensemble des canaux (Voix HD, SMS A2P, WhatsApp Business, USSD) à l'organisation, conformément au décret n°2022/10902 sur les ressources en numérotation.",
   },
   {
-    q: "Quel est le rôle du partenariat avec CAMTEL ?",
-    a: "CAMTEL est le partenaire stratégique national de GTS-Infotel. Ce partenariat permet l'acheminement fiable et réglementé des communications d'entreprise sur le réseau public camerounais, assurant ainsi une qualité audio optimale, des interconnexions directes et une haute disponibilité.",
+    q: "Pourquoi la souveraineté des communications professionnelles est-elle un enjeu stratégique ?",
+    a: "Aujourd'hui, une grande partie des échanges d'entreprise et d'administration en Afrique transite par des mobiles personnels ou des applications OTT tierces (WhatsApp, Gmail, etc.) hébergées hors du continent. Cela externalise des données stratégiques sensibles et prive les entreprises du contrôle de leurs échanges. GTS-Infotel et son réseau ProCom permettent de rapatrier, centraliser et sécuriser ces données de communication au sein d'infrastructures locales souveraines, condition essentielle pour la confidentialité et pour entraîner une IA locale adaptée.",
   },
   {
-    q: "Qu'est-ce que le réseau ProCom ?",
-    a: "ProCom (the Online Communication on PRO Numbers) est le 1er réseau de communication professionnelle de nouvelle génération développé par GTS. Il permet aux entreprises d'acheminer et gérer leurs flux d'appels et messages professionnels sur leurs numéros PRO, sur mobile comme sur ordinateur.",
+    q: "Comment le Numéro PRO protège-t-il contre l'usurpation d'identité et la fraude Mobile Money ?",
+    a: "L'usage frauduleux de cartes SIM anonymes et de boîtiers SIMBox alimente l'usurpation d'identité de marques pour pirater des comptes Mobile Money. Le Numéro PRO éradique ce risque en servant d'identifiant d'émetteur vérifié et certifié auprès des opérateurs et des régulateurs. Il peut également servir de code marchand unique USSD (ProMoney), assurant une traçabilité totale des paiements et restaurant la confiance numérique.",
   },
   {
-    q: "Qu'est-ce que Mobinawa ?",
-    a: "Mobinawa est une plateforme mobile-first de communication unifiée B2B et B2C connectée au réseau ProCom. Elle intègre un standard téléphonique virtuel adapté aux entreprises de différentes tailles et rapproche les usages de téléphonie professionnelle des besoins de communication modernes.",
+    q: "Quel est le rôle du partenariat stratégique entre GTS-Infotel et CAMTEL ?",
+    a: "CAMTEL, opérateur public national et gestionnaire du backbone fibre optique ainsi que du Data Center de Zamengoé (Tier III), assure le rôle de hub national d'interconnexion multicanale (Voix, SMS, USSD, Internet). Ce partenariat permet à GTS-Infotel d'acheminer les flux d'entreprise avec une qualité opérateur, une conformité réglementaire totale et un hébergement local souverain des données de communication.",
   },
   {
-    q: "En quoi consiste l'intégration avec 3CX ?",
-    a: "GTS-Infotel intègre les technologies 3CX pour fournir aux entreprises un standard CloudPBX complet, un centre de contacts multi-agents et des outils de communications unifiées (UCC) interconnectés à ses numéros professionnels.",
+    q: "En quoi consiste l'application Mobinawa lancée lors de PROMOTE 2026 ?",
+    a: "Mobinawa est la première application mobile panafricaine de communication professionnelle du réseau ProCom. Conçue comme une alternative souveraine aux applications grand public, elle permet aux collaborateurs, indépendants et membres de la diaspora d'émettre et recevoir des appels et messages sous le nom officiel de leur organisation avec leur Numéro PRO, séparant hermétiquement vie professionnelle et vie personnelle.",
+  },
+  {
+    q: "Quelle est la vision de GTS Africa pour l'intégration de la CEMAC et la ZLECAf ?",
+    a: "À l'image de ce qui existe au sein de l'Union Européenne, GTS Africa milite à travers la FADB et les instances régionales pour un réseau unifié de téléphonie professionnelle panafricain. À l'heure de la ZLECAf, le réseau ProCom permet aux organisations africaines d'échanger et de commercer à tarif local par-delà les frontières nationales, stimulant l'inclusion économique et l'émergence d'acteurs ComTech et FinTech locaux.",
   },
   {
     q: "GTS-Infotel est-il un opérateur agréé par l'État ?",
@@ -303,7 +309,7 @@ export const FAQ_ITEMS = [
 ];
 
 export const FOOTER = {
-  tagline: "1er opérateur télécom alternatif de numéros fixes virtuels multi-services des entreprises au Cameroun.",
+  tagline: "1er opérateur télécom alternatif de numéros fixes virtuels multi-services des entreprises au Cameroun · Acteur ComTech pionnier en Afrique.",
   address: "Rue de l'indépendance, Immeuble Face Calafatas, Yaoundé",
   phone: "+237 242 232 000",
   phoneRaw: "+237242232000",
@@ -314,3 +320,4 @@ export const FOOTER = {
   linkedin: 'https://fr.linkedin.com/company/gts-infotel-nigeria-ltd',
   legalName: 'GTS-Infotel Cameroon SA',
 };
+

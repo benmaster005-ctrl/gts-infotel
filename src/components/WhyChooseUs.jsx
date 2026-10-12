@@ -69,9 +69,9 @@ const WhyChooseUs = () => {
             {/* Statut officiel */}
             <div className="col-span-2 p-5 rounded-xl border border-gray-200 bg-white flex items-center justify-between">
               <span className="text-xs font-medium text-gray-700">
-                Régulation & Autorisation ART Cameroun
+                Licence ART Cat. 1 · Décret n°2022/10902 (Fixe Virtuel A2P)
               </span>
-              <span className="text-xs font-semibold text-brand-navy">Agréé</span>
+              <span className="text-xs font-semibold text-brand-navy">Agréé & Conforme</span>
             </div>
           </div>
 

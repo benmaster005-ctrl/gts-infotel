@@ -5,61 +5,69 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const CORE_GATEWAYS = [
   {
     name: 'Voice Number Gateway',
-    desc: 'Interconnexion directe entre tous les réseaux GSM locaux et les comptes Voix (SIP TRUNK) associés aux numéros PRO attribués aux clients.',
+    desc: 'Interconnexion directe de classe opérateur avec CAMTEL et tous les réseaux GSM locaux pour acheminer les flux Voix HD vers les comptes SIP TRUNK associés aux numéros PRO, sans transiter par des serveurs offshore.',
   },
   {
     name: 'SMS Number Gateway',
-    desc: 'Interconnexion haute disponibilité entre tous les réseaux GSM locaux et les comptes SMS (API HTTP ou SMPP) associés aux numéros PRO.',
+    desc: 'Passerelle A2P haute disponibilité pour flux transactionnels et OTP fiabilisés (API HTTP / SMPP). Élimine les routes grises et garantit des taux de livraison optimaux avec filtrage anti-abus.',
   },
   {
-    name: 'Customer Extranet',
-    desc: 'Portail web unifié pour la visualisation par chaque client de ses données de reporting, statistiques de trafic Voix & SMS, et solde des crédits.',
+    name: 'Customer Extranet & BI Analytics',
+    desc: 'Portail web unifié de pilotage offrant la supervision en direct des flux, le détail des CDR, les statistiques d’audience Voix & SMS, la gestion des soldes et la traçabilité complète des transactions.',
   },
 ];
 
 const CLOUD_PLATFORMS = [
   {
-    title: 'Cloud PBX & Communication unifiée',
-    desc: 'Standard de téléphonie fixe-mobile virtuel, collaboration (messagerie instantanée & visioconférence), centre de contact omnicanal (Voix, Web Chat, WhatsApp) avec intégration CRM/IT.',
+    title: 'Cloud PBX & Communications Unifiées (CIRPACK)',
+    desc: 'Standard virtuel fixe-mobile, collaboration d’équipe (chat, visioconférence) et centre de contact omnicanal sans investissement matériel (zéro CAPEX), propulsé par le cœur de réseau CIRPACK.',
   },
   {
-    title: 'WebSMS & Campagnes',
-    desc: 'Plateforme de gestion de campagnes marketing (BulkSMS), Chat SMS interactif et fourniture de services SMS (Code-Gagnant, Vote, Quiz, alertes transactionnelles).',
+    title: 'Mobinawa Mobile App (Alternative Souveraine)',
+    desc: 'Première application panafricaine de communication professionnelle lancée à PROMOTE 2026. Permet aux professionnels d’échanger sous leur Nom/Organisation avec un Numéro PRO au tarif local.',
   },
   {
-    title: 'CRM / Helpdesk Omnicanal',
-    desc: 'Remontée automatique de fiche client lors de la réception d’appels et chat multicanal (Webform, WebChat, Email, SMS, Telegram) avec gestion de ticketing.',
+    title: 'WhatsApp Business API Officiel',
+    desc: 'Passerelle officielle pour connecter votre identifiant d’entreprise aux flux de messagerie conversationnelle, avec routage intelligent, chatbots automatisés et ticketing.',
   },
   {
-    title: 'WhatsApp Business API',
-    desc: 'Plateforme de gestion de campagnes promotionnelles et chat WhatsApp automatisé pour le service client avec routage et ticketing.',
+    title: 'WebSMS & Campagnes A2P Structurées',
+    desc: 'Plateforme de diffusion de SMS transactionnels, alertes et notifications en masse (BulkSMS), sécurisées par des identifiants d’émetteurs vérifiés conformes au cadre réglementaire.',
   },
   {
-    title: 'Mobinawa Mobile App',
-    desc: 'Application mobile de standard virtuel en libre-service pour les professionnels locaux et la diaspora, pour émettre et recevoir des appels à des tarifs locaux.',
+    title: 'CRM & Helpdesk Omnicanal',
+    desc: 'Remontée automatique de fiches clients et contextualisation des échanges (Voix, SMS, WhatsApp, Webform, Email), transformant les interactions en données souveraines prêtes pour l’IA.',
+  },
+  {
+    title: 'ProMoney & Codes Marchands USSD',
+    desc: 'Utilisation du Numéro PRO comme code marchand unique pour le paiement mobile par USSD, assurant la traçabilité des transactions et l’inclusion financière des commerçants.',
   },
 ];
 
 const ECOSYSTEM_STAKEHOLDERS = [
   {
-    role: 'Entreprises de toutes tailles',
-    benefit: 'Obtenir facilement un numéro PRO d’identification pour offrir des services numériques (Voix, SMS, WhatsApp, Web, paiement mobile) sur tous les réseaux.',
+    role: 'Entreprises & Organisations',
+    benefit: 'Identité téléphonique officielle, sécurisation des communications des salariés et centralisation des données stratégiques pour alimenter leur IA d’entreprise.',
   },
   {
-    role: 'Consommateurs',
-    benefit: 'Expérience client optimale avec possibilité d’enregistrer le numéro PRO identifiant la personne morale, garantissant authenticité et confiance.',
+    role: 'Consommateurs & Citoyens',
+    benefit: 'Joignabilité directe et certifiée des entreprises et administrations, éradication de la fraude sur les comptes Mobile Money et confiance numérique retrouvée.',
   },
   {
-    role: 'Revendeurs (ISP & IT)',
-    benefit: 'Permettre aux fournisseurs d’accès Internet et prestataires IT de devenir CSP (Communication Service Providers) pour enrichir leurs offres d’entreprise.',
+    role: 'Opérateur Historique CAMTEL',
+    benefit: 'Synergie avec le Data Center souverain de Zamengoé (Tier III) et valorisation des ressources de numérotation pour devenir le hub national d’interconnexion multicanale.',
   },
   {
-    role: 'Acteurs de l’écosystème',
-    benefit: 'Accès sécurisé via Web/API à la base de données des numéros PRO attribués aux personnes morales (Régulateur ART, banques, fisc, fintechs).',
+    role: 'Écosystème Régional & ZLECAf',
+    benefit: 'Réseau unifié de téléphonie professionnelle permettant aux entreprises de commercer à tarif local par-delà les frontières nationales dans la CEMAC et sur le continent.',
+  },
+  {
+    role: 'Administrations, Régulateur & Fisc',
+    benefit: 'Référentiel national d’identité téléphonique des personnes morales, servant d’attribut KYC unique vérifiable par API pour sécuriser l’ensemble des registres sectoriels.',
   },
   {
     role: 'Diaspora dans le monde',
-    benefit: 'Obtention d’un numéro PRO local via l’application Mobinawa pour joindre des collaborateurs et clients locaux à des tarifs nationaux.',
+    benefit: 'Attribution d’un Numéro PRO local via l’application Mobinawa pour piloter des activités et joindre collaborateurs et clients en Afrique au tarif local.',
   },
 ];
 
@@ -86,11 +94,11 @@ export default function ProcomNetworkPage({ onContact, onNavigateHome }) {
 
           <div className="max-w-4xl space-y-6">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-navy leading-tight">
-              L'infrastructure télécom cloud pour les organisations en Afrique.
+              L'infrastructure télécom souveraine pour les organisations en Afrique.
             </h1>
             
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-normal max-w-3xl">
-              ProCom est une infrastructure cloud de classe opérateur interconnectée avec l'opérateur historique national <strong>CAMTEL</strong>. Elle permet aux organisations d'attribuer et d'exploiter des numéros fixes virtuels multi-services (Voix, SMS, WhatsApp) sur tous les réseaux de télécommunications.
+              ProCom est un réseau panafricain de type FVNO / Enterprise MVNO développé par GTS Africa, adossé à l'opérateur historique <strong>CAMTEL</strong> et propulsé par la technologie Softswitch & IMS de <strong>CIRPACK</strong>. Il interconnecte l'ensemble des réseaux de télécommunication (Internet, Voix, SMS, USSD, WhatsApp) pour attribuer des Numéros PRO vérifiables, centraliser les données d'échanges sur le sol africain et catalyser l'intégration économique (CEMAC, ZLECAf).
             </p>
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
