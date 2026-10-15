@@ -101,7 +101,7 @@ export const SOLUTIONS = {
       id: 'mobinawa',
       title: 'Mobinawa Suite',
       badge: 'Téléphonie Mobile & IPBX Cloud UCaaS',
-      image: '/assets/mobinawa-banner.jpg',
+      image: '/assets/mobinawa-logo.png',
       tagline: 'Communication unifiée, standard virtuel CloudPBX et application mobile panafricaine.',
       text: "Opérée en partenariat avec CIRPACK et lancée lors de PROMOTE 2026, Mobinawa réunit l'ensemble des usages professionnels en une seule suite : standard d'entreprise IPBX Cloud (UCaaS), application mobile collaborative et attribution de Numéros PRO pour les équipes, indépendants et la diaspora. Elle garantit la souveraineté et la rétention locale de vos données de communication.",
       features: [
