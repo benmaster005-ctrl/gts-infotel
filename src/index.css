@@ -143,4 +143,38 @@
   .btn-dark:active {
     transform: scale(0.98);
   }
+
+
+  /* ── Carrousel partenaires en boucle infinie ── */
+  .partners-track {
+    display: flex;
+    width: max-content;
+    animation: partners-scroll 32s linear infinite;
+  }
+  .partners-track:hover {
+    animation-play-state: paused;
+  }
+  .partners-viewport {
+    overflow: hidden;
+    /* Masques de fondu gauche/droite */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      #fff 10%,
+      #fff 90%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      #fff 10%,
+      #fff 90%,
+      transparent 100%
+    );
+  }
+
+  @keyframes partners-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 }

@@ -150,9 +150,9 @@ export default function ContactModal({ isOpen, onClose }) {
                   className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-brand-navy transition-colors bg-white"
                 >
                   <option value="numero-pro">Numéro PRO Virtuel (Fixe)</option>
-                  <option value="3cx-callcenter">3CX-CallCenter (Centre d'appels)</option>
+                  <option value="mobinawa">Mobinawa Suite (App & IPBX Cloud)</option>
+                  <option value="3cx-callcenter">3CX-CallCenter & CRM (Centre de contacts)</option>
                   <option value="reseau-procom">Raccordement Réseau ProCom</option>
-                  <option value="mobinawa-business">Mobinawa-Business (IPBX Cloud)</option>
                   <option value="digicontacts">DigiContacts (Omnicanal SI)</option>
                 </select>
               </div>

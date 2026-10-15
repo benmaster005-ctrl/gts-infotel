@@ -88,7 +88,7 @@ export default function Footer({ onContact, onNavigate }) {
                   onClick={() => onNavigate('3cx-callcenter')}
                   className="text-gray-600 hover:text-brand-navy transition-colors text-left"
                 >
-                  Centre de Contact 3CX
+                  3CX-CallCenter & CRM
                 </button>
               </li>
               <li>
@@ -106,7 +106,7 @@ export default function Footer({ onContact, onNavigate }) {
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-brand-navy transition-colors block"
                 >
-                  Mobinawa-Business
+                  Mobinawa Suite
                 </a>
               </li>
               <li>
