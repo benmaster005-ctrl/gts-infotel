@@ -59,13 +59,61 @@ export default function ProcomBenefits() {
     <section id="avantages" className="relative py-28 overflow-hidden">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-[#0C1F3D] to-[#091428]" />
-      
-      {/* Grain texture */}
-      <div className="absolute inset-0 grain" />
 
-      {/* Floating orbs */}
-      <div className="absolute top-20 right-1/4 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-brand-orange/5 rounded-full blur-3xl animate-float delay-300" />
+      {/* Grille de points subtile */}
+      <div
+        className="absolute inset-0 opacity-[0.05]"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }}
+      />
+
+      {/* ── Logo ProCom en watermark central animé ── */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        <div className="relative flex items-center justify-center" style={{ width: 480, height: 480 }}>
+          {/* Anneaux de signal concentriques */}
+          {[0, 1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="absolute rounded-full border border-brand-orange/15 procom-signal"
+              style={{
+                inset: `${i * -40}px`,
+                animationDelay: `${i * 0.75}s`,
+              }}
+            />
+          ))}
+          {/* Halo orange doux */}
+          <div className="absolute w-64 h-64 rounded-full bg-brand-orange/8 blur-3xl procom-pulse-ring" />
+          {/* Logo ProCom tournant */}
+          <img
+            src="/assets/procom-logo.png"
+            alt=""
+            aria-hidden="true"
+            className="w-72 h-72 object-contain opacity-[0.08] procom-spin"
+            style={{ filter: 'brightness(0) invert(1)' }}
+          />
+        </div>
+      </div>
+
+      {/* Orbe bleu top-right */}
+      <div className="absolute top-20 right-16 w-80 h-80 bg-brand-blue/12 rounded-full blur-3xl procom-float-slow pointer-events-none" />
+      {/* Orbe orange bottom-left */}
+      <div className="absolute bottom-20 left-16 w-64 h-64 bg-brand-orange/8 rounded-full blur-3xl procom-float-slow pointer-events-none" style={{ animationDelay: '5s' }} />
+
+      {/* Micro-particules */}
+      {[...Array(6)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute w-1 h-1 rounded-full bg-brand-orange/40 procom-drift pointer-events-none"
+          style={{
+            left: `${8 + i * 15}%`,
+            bottom: `${20 + (i % 3) * 22}%`,
+            animationDelay: `${i * 1.1}s`,
+            animationDuration: `${6 + i * 0.6}s`,
+          }}
+        />
+      ))}
 
       <div className="relative max-w-6xl mx-auto px-6">
         
