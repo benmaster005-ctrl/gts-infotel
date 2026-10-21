@@ -177,37 +177,4 @@
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
-
-  /* ── Animations ProCom background ── */
-  @keyframes procom-spin {
-    0%   { transform: rotate(0deg) scale(1); }
-    50%  { transform: rotate(180deg) scale(1.04); }
-    100% { transform: rotate(360deg) scale(1); }
-  }
-  @keyframes procom-pulse-ring {
-    0%   { transform: scale(0.85); opacity: 0.6; }
-    70%  { transform: scale(1.25); opacity: 0; }
-    100% { transform: scale(0.85); opacity: 0; }
-  }
-  @keyframes procom-float-slow {
-    0%, 100% { transform: translateY(0px) translateX(0px); }
-    33%       { transform: translateY(-18px) translateX(8px); }
-    66%       { transform: translateY(10px) translateX(-6px); }
-  }
-  @keyframes procom-signal {
-    0%   { transform: scale(1);   opacity: 0.7; }
-    100% { transform: scale(2.8); opacity: 0; }
-  }
-  @keyframes procom-drift {
-    0%   { transform: translateY(0)   translateX(0)   rotate(0deg); opacity: 0; }
-    10%  { opacity: 1; }
-    90%  { opacity: 1; }
-    100% { transform: translateY(-80px) translateX(20px) rotate(360deg); opacity: 0; }
-  }
-
-  .procom-spin       { animation: procom-spin 22s linear infinite; }
-  .procom-pulse-ring { animation: procom-pulse-ring 2.8s ease-out infinite; }
-  .procom-float-slow { animation: procom-float-slow 9s ease-in-out infinite; }
-  .procom-signal     { animation: procom-signal 3s ease-out infinite; }
-  .procom-drift      { animation: procom-drift 7s ease-in-out infinite; }
 }
