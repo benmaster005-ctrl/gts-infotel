@@ -1,6 +1,6 @@
 import { HERO } from '../data/telecomData';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { ArrowRight, Play, Shield, Globe, Zap } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 
 export default function Hero({ onContact }) {
   const [trustRef] = useScrollAnimation();
@@ -35,22 +35,23 @@ export default function Hero({ onContact }) {
           }}
         />
 
-        {/* ── CONTENU PRINCIPAL ── */}
-        <div className="relative z-10 h-full max-w-7xl mx-auto px-6 flex flex-col justify-between" style={{ minHeight: '88vh', paddingTop: '11rem', paddingBottom: '3.5rem' }}>
-
-          {/* ── ZONE HAUTE : badge + grand titre ── */}
-          <div className="max-w-3xl">
+        {/* ── CONTENU PRINCIPAL ALIGNÉ À GAUCHE (SANS CADRES) ── */}
+        <div
+          className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center items-start text-left"
+          style={{ minHeight: '88vh', paddingTop: '10.5rem', paddingBottom: '4rem' }}
+        >
+          <div className="max-w-3xl flex flex-col items-start text-left">
 
             {/* Badge éditorial épuré */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/30 backdrop-blur-sm mb-7 animate-fade-in-up">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/30 backdrop-blur-sm mb-6 animate-fade-in-up">
               <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
               <span className="text-xs font-semibold tracking-wider uppercase text-brand-orange">
                 Opérateur Télécom Agréé · Cameroun
               </span>
             </div>
 
-            {/* Titre fragmenté moderne et lisible (sans stroke creux) */}
-            <h1 className="animate-fade-in-up space-y-1" style={{ animationDelay: '80ms' }}>
+            {/* Titre fragmenté moderne et percutant */}
+            <h1 className="animate-fade-in-up space-y-1 mb-6 text-left" style={{ animationDelay: '80ms' }}>
               <span className="block text-4xl sm:text-5xl lg:text-[3.5rem] font-light text-white/85 leading-tight tracking-tight">
                 L'identité téléphonique
               </span>
@@ -62,63 +63,58 @@ export default function Hero({ onContact }) {
               </span>
             </h1>
 
-          </div>
+            {/* Texte lead descriptif — sans cadre, directement intégré sur le fond de page */}
+            <p
+              className="text-base sm:text-lg text-gray-200/90 leading-relaxed font-normal max-w-2xl mb-8 animate-fade-in-up text-left"
+              style={{ animationDelay: '160ms' }}
+            >
+              {HERO.lead}
+            </p>
 
-          {/* ── ZONE BAS : stats + lead + CTA ── */}
-          <div className="flex flex-col lg:flex-row items-end justify-between gap-8 mt-auto pt-10">
-
-            {/* Stat-pills ancrées en bas à gauche */}
-            <div className="flex flex-wrap gap-3 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              {[
-                { icon: Shield, label: 'Licence ART Cat. 1', sub: 'Opérateur agréé' },
-                { icon: Globe,  label: 'Réseau ProCom',      sub: 'Voix · SMS · USSD' },
-                { icon: Zap,    label: 'CAMTEL Partner',     sub: 'Interconnexion directe' },
-              ].map(({ icon: Icon, label, sub }) => (
-                <div
-                  key={label}
-                  className="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-white/10 bg-white/[0.05] hover:bg-white/[0.08] backdrop-blur-md transition-colors"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-brand-orange/15 flex items-center justify-center shrink-0">
-                    <Icon className="w-4 h-4 text-brand-orange" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-white leading-tight">{label}</p>
-                    <p className="text-[11px] text-gray-300/80 mt-0.5 leading-tight">{sub}</p>
-                  </div>
-                </div>
-              ))}
+            {/* Boutons d'action — sans cadre */}
+            <div
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mb-10 animate-fade-in-up"
+              style={{ animationDelay: '240ms' }}
+            >
+              <button
+                onClick={onContact}
+                className="btn-accent text-sm sm:text-base py-3 px-6 shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 font-medium"
+              >
+                {HERO.cta}
+                <ArrowRight className="w-4 h-4 text-white" />
+              </button>
+              <a
+                href="#solutions"
+                className="inline-flex items-center justify-center gap-2 py-3 px-5 text-sm sm:text-base font-medium rounded-lg border border-white/20 text-white hover:bg-white/10 hover:border-white/35 transition-all duration-200"
+              >
+                <Play className="w-3.5 h-3.5 fill-white text-white" />
+                {HERO.ctaSecondary}
+              </a>
             </div>
 
-            {/* Carte lead + CTA — glassmorphism épuré en bas à droite */}
+            {/* Logos officiels (ART, ProCom, CAMTEL) — sans encadrement, directement ancrés dans la page */}
             <div
-              className="w-full lg:max-w-sm rounded-2xl p-6 animate-fade-in-up"
-              style={{
-                animationDelay: '300ms',
-                background: 'rgba(255, 255, 255, 0.06)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-              }}
+              className="flex items-center gap-8 sm:gap-10 flex-wrap animate-fade-in-up pt-2"
+              style={{ animationDelay: '320ms' }}
             >
-              <p className="text-sm text-gray-200 leading-relaxed mb-5 font-normal">
-                {HERO.lead}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <button
-                  onClick={onContact}
-                  className="btn-accent text-sm py-2.5 px-5 flex-1 shadow-md hover:shadow-lg transition-all"
-                >
-                  {HERO.cta}
-                  <ArrowRight className="w-3.5 h-3.5 ml-1 text-white" />
-                </button>
-                <a
-                  href="#solutions"
-                  className="inline-flex items-center justify-center gap-1.5 py-2.5 px-4 text-sm font-medium rounded-lg border border-white/20 text-white hover:bg-white/10 hover:border-white/35 transition-all duration-200 flex-1"
-                >
-                  <Play className="w-3.5 h-3.5 fill-white text-white" />
-                  {HERO.ctaSecondary}
-                </a>
-              </div>
+              <img
+                src="/assets/art-logo-trimmed.png"
+                alt="Licence ART Cameroun"
+                title="Agence de Régulation des Télécommunications (Licence Cat. 1)"
+                className="h-8 sm:h-9 w-auto object-contain opacity-85 hover:opacity-100 transition-opacity"
+              />
+              <img
+                src="/assets/procom-logo-white-trimmed.png"
+                alt="Réseau ProCom"
+                title="Réseau ProCom - The Online Communication on PRO Numbers"
+                className="h-6 sm:h-7 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+              />
+              <img
+                src="/assets/camtel-logo-trimmed.png"
+                alt="CAMTEL Partner"
+                title="CAMTEL - Opérateur National Partenaire"
+                className="h-8 sm:h-9 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+              />
             </div>
 
           </div>
