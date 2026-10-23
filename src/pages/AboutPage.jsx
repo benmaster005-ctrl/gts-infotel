@@ -71,7 +71,7 @@ export default function AboutPage({ onContact, onNavigateHome }) {
 
           <div className="max-w-4xl space-y-6">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-navy leading-tight">
-              Pionnier de la virtualisation télécom en Afrique.
+              Pionnier de la virtualisation de la téléphonie fixe en Afrique.
             </h1>
             
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-normal max-w-3xl">
