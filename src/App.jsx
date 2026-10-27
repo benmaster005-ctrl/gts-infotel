@@ -104,7 +104,7 @@ export default function App() {
         onNavigate={navigate}
       />
 
-      <main>
+      <main key={currentRoute} className="animate-fade-in">
         {currentRoute === 'numero-pro' ? (
           <NumeroProPage
             onContact={openContact}

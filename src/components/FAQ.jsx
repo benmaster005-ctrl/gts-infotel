@@ -4,7 +4,8 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { ChevronDown } from 'lucide-react';
 
 const FAQ = () => {
-  const [sectionRef] = useScrollAnimation();
+  const [headerRef, headerVisible] = useScrollAnimation();
+  const [listRef, listVisible] = useScrollAnimation();
   const [openIndex, setOpenIndex] = useState(0);
 
   const toggleAccordion = (index) => {
@@ -12,46 +13,55 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" ref={sectionRef} className="py-24 md:py-32 bg-white border-b border-gray-200 scroll-mt-20">
+    <section id="faq" className="py-24 md:py-32 bg-white border-b border-gray-200 scroll-mt-20">
       <div className="max-w-4xl mx-auto px-6">
-        
-        {/* En-tête */}
-        <div className="max-w-2xl mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4">
-            Questions Fréquemment Posées
+
+        {/* En-tete */}
+        <div
+          ref={headerRef}
+          className={`max-w-2xl mb-16 reveal ${headerVisible ? 'is-visible' : ''}`}
+        >
+          <span className={`orange-bar mb-4 ${headerVisible ? 'is-visible' : ''}`} />
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4 mt-4">
+            Questions Frequemment Posees
           </h2>
           <p className="text-base text-gray-600 font-normal">
-            Tout comprendre sur l'attribution des numéros virtuels et le fonctionnement du réseau ProCom.
+            Tout comprendre sur l'attribution des numeros virtuels et le fonctionnement du reseau ProCom.
           </p>
         </div>
 
-        {/* Accordéon avec transition fluide */}
-        <div className="space-y-3">
+        {/* Accordeon avec transitions fluides */}
+        <div
+          ref={listRef}
+          className="space-y-3"
+        >
           {FAQ_ITEMS?.map((item, index) => {
             const isOpen = openIndex === index;
-            
+
             return (
-              <div 
+              <div
                 key={index}
-                className="rounded-xl border border-gray-200 bg-white overflow-hidden transition-colors hover:border-gray-300"
+                className={`rounded-xl border bg-white overflow-hidden transition-all duration-300 reveal stagger-${Math.min(index + 1, 6)} ${listVisible ? 'is-visible' : ''} ${
+                  isOpen ? 'border-brand-orange/30 shadow-sm' : 'border-gray-200 hover:border-gray-300'
+                }`}
               >
                 <button
                   onClick={() => toggleAccordion(index)}
                   className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left focus:outline-none hover:bg-gray-50/70 transition-colors"
                 >
-                  <span className={`text-base font-semibold transition-colors ${isOpen ? 'text-brand-orange' : 'text-brand-navy'}`}>
+                  <span className={`text-base font-semibold transition-colors duration-200 ${isOpen ? 'text-brand-orange' : 'text-brand-navy'}`}>
                     {item.q}
                   </span>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-gray-500 shrink-0 transition-transform duration-300 ease-in-out ${
-                      isOpen ? 'rotate-180 text-brand-orange' : ''
-                    }`} 
+                  <ChevronDown
+                    className={`w-5 h-5 shrink-0 transition-all duration-300 ease-in-out ${
+                      isOpen ? 'rotate-180 text-brand-orange' : 'text-gray-400'
+                    }`}
                   />
                 </button>
-                
-                {/* Conteneur animé en CSS Grid */}
-                <div 
-                  className={`grid transition-all duration-300 ease-in-out ${
+
+                {/* Accordeon anime par CSS Grid */}
+                <div
+                  className={`grid transition-all duration-350 ease-in-out ${
                     isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                   }`}
                 >

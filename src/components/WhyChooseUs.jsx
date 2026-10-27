@@ -6,15 +6,21 @@ import { Handshake, Award, Shield, HeadphonesIcon } from 'lucide-react';
 const icons = [Handshake, Award, Shield, HeadphonesIcon];
 
 const WhyChooseUs = () => {
-  const [sectionRef] = useScrollAnimation();
+  const [headerRef, headerVisible] = useScrollAnimation();
+  const [leftRef, leftVisible] = useScrollAnimation();
+  const [rightRef, rightVisible] = useScrollAnimation();
 
   return (
-    <section id="pourquoi" ref={sectionRef} className="py-24 md:py-32 bg-white border-b border-gray-200 scroll-mt-20">
+    <section id="pourquoi" className="py-24 md:py-32 bg-white border-b border-gray-200 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
-        
-        {/* En-tête */}
-        <div className="max-w-3xl mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4">
+
+        {/* En-tete */}
+        <div
+          ref={headerRef}
+          className={`max-w-3xl mb-16 reveal ${headerVisible ? 'is-visible' : ''}`}
+        >
+          <span className={`orange-bar mb-4 ${headerVisible ? 'is-visible' : ''}`} />
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4 mt-4">
             {WHY_GTS.heading}
           </h2>
           <p className="text-base text-gray-600 font-normal leading-relaxed">
@@ -24,18 +30,22 @@ const WhyChooseUs = () => {
 
         {/* Grille : Garanties + Stats */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Colonne Garanties */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          {/* Colonne Garanties — slide depuis la gauche */}
+          <div
+            ref={leftRef}
+            className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4"
+          >
             {WHY_GTS.guarantees?.map((guarantee, index) => {
               const Icon = icons[index % icons.length];
+              const staggerClass = `stagger-${index + 1}`;
               return (
                 <div
                   key={index}
-                  className="clean-card p-6 flex flex-col justify-between group"
+                  className={`clean-card p-6 flex flex-col justify-between group reveal-left ${staggerClass} ${leftVisible ? 'is-visible' : ''}`}
                 >
                   <div>
-                    <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-700 mb-4 group-hover:bg-brand-navy group-hover:text-white transition-colors duration-200">
+                    <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-700 mb-4 group-hover:bg-brand-navy group-hover:text-white transition-colors duration-300">
                       <Icon className="w-5 h-5 text-current" />
                     </div>
                     <h3 className="text-base font-bold text-brand-navy mb-2">
@@ -50,12 +60,15 @@ const WhyChooseUs = () => {
             })}
           </div>
 
-          {/* Colonne Statistiques sur fond blanc pur */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+          {/* Colonne Statistiques — slide depuis la droite */}
+          <div
+            ref={rightRef}
+            className="lg:col-span-5 grid grid-cols-2 gap-4"
+          >
             {WHY_GTS.stats?.map((stat, index) => (
               <div
                 key={index}
-                className="p-6 rounded-xl border border-gray-200 bg-white flex flex-col justify-between"
+                className={`p-6 rounded-xl border border-gray-200 bg-white flex flex-col justify-between reveal-right stagger-${index + 1} ${rightVisible ? 'is-visible' : ''}`}
               >
                 <span className="text-3xl sm:text-4xl font-bold text-brand-navy mb-2 block">
                   {stat.value}
@@ -65,13 +78,13 @@ const WhyChooseUs = () => {
                 </span>
               </div>
             ))}
-            
+
             {/* Statut officiel */}
-            <div className="col-span-2 p-5 rounded-xl border border-gray-200 bg-white flex items-center justify-between">
+            <div className={`col-span-2 p-5 rounded-xl border border-gray-200 bg-white flex items-center justify-between reveal-right stagger-5 ${rightVisible ? 'is-visible' : ''}`}>
               <span className="text-xs font-medium text-gray-700">
-                Licence ART Cat. 1 · Décret n°2022/10902 (Fixe Virtuel A2P)
+                Licence ART Cat. 1 · Decret n°2022/10902 (Fixe Virtuel A2P)
               </span>
-              <span className="text-xs font-semibold text-brand-navy">Agréé & Conforme</span>
+              <span className="text-xs font-semibold text-brand-navy">Agree &amp; Conforme</span>
             </div>
           </div>
 

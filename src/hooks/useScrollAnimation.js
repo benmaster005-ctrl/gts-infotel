@@ -2,9 +2,9 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 
 /**
  * Hook universel d'animation au défilement (scroll animation).
- * Garanti sans écran blanc : le contenu est visible dès le premier rendu,
- * et l'animation d'entrée se déclenche harmonieusement.
- * 
+ * Le contenu démarre invisible et apparaît avec animation au moment
+ * où il entre dans le viewport.
+ *
  * Supporte toutes les syntaxes d'appel :
  * - const [ref, isVisible] = useScrollAnimation();
  * - const ref = useScrollAnimation();
@@ -12,7 +12,8 @@ import { useEffect, useRef, useState, useCallback } from 'react';
  */
 export function useScrollAnimation(options = {}) {
   const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(true);
+  // Démarre à false pour que l'animation se déclenche à l'entrée
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -31,8 +32,8 @@ export function useScrollAnimation(options = {}) {
           }
         },
         {
-          threshold: 0.05,
-          rootMargin: '100px',
+          threshold: 0.08,
+          rootMargin: '0px 0px -40px 0px',
           ...obsOptions,
         }
       );
@@ -64,7 +65,7 @@ export function useScrollAnimation(options = {}) {
  */
 export function useStaggerAnimation(count = 4, staggerDelay = 100) {
   const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   const delay = typeof count === 'number' && typeof staggerDelay === 'number' ? staggerDelay : 100;
 
@@ -83,7 +84,7 @@ export function useStaggerAnimation(count = 4, staggerDelay = 100) {
             observer.unobserve(el);
           }
         },
-        { threshold: 0.05, rootMargin: '100px' }
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
       );
 
       observer.observe(el);

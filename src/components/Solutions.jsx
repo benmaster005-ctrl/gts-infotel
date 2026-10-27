@@ -4,42 +4,50 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Check, ArrowRight, ExternalLink } from 'lucide-react';
 
 const Solutions = ({ onContact }) => {
-  const [headerRef] = useScrollAnimation();
+  const [headerRef, headerVisible] = useScrollAnimation();
+  const [gridRef, gridVisible] = useScrollAnimation();
+  const [ctaRef, ctaVisible] = useScrollAnimation();
 
   return (
     <section id="solutions" className="py-24 md:py-32 bg-white border-b border-gray-200 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
-        
-        {/* En-tête */}
-        <div ref={headerRef} className="max-w-3xl mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4">
+
+        {/* En-tete */}
+        <div
+          ref={headerRef}
+          className={`max-w-3xl mb-16 reveal ${headerVisible ? 'is-visible' : ''}`}
+        >
+          <span className={`orange-bar mb-4 ${headerVisible ? 'is-visible' : ''}`} />
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4 mt-4">
             {SOLUTIONS?.heading || "Solutions de communication professionnelle"}
           </h2>
           <p className="text-base text-gray-600 font-normal leading-relaxed">
-            {SOLUTIONS?.lead || "Des plateformes certifiées pour unifier la voix, le SMS et les messageries d'entreprise."}
+            {SOLUTIONS?.lead || "Des plateformes certifiees pour unifier la voix, le SMS et les messageries d'entreprise."}
           </p>
         </div>
 
-        {/* Grille Solutions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Grille Solutions avec stagger */}
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           {SOLUTIONS?.items?.map((solution, index) => {
             const isExternal = solution.ctaHref && solution.ctaHref.startsWith('http');
-            
+            const staggerClass = index < 6 ? `stagger-${index + 1}` : '';
+
             return (
-              <div 
+              <div
                 key={solution.id || index}
-                className="clean-card p-8 flex flex-col justify-between"
+                className={`clean-card p-8 flex flex-col justify-between reveal ${staggerClass} ${gridVisible ? 'is-visible' : ''}`}
               >
                 <div>
-                  {/* Logo de la solution */}
+                  {/* Logo */}
                   <div className="h-16 flex items-center mb-6">
-                    <img 
-                      src={solution.image} 
+                    <img
+                      src={solution.image}
                       alt={solution.title}
-                      className="max-h-12 w-auto object-contain"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
+                      className="max-h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                      onError={(e) => { e.target.style.display = 'none'; }}
                     />
                   </div>
 
@@ -53,7 +61,7 @@ const Solutions = ({ onContact }) => {
                     {solution.text}
                   </p>
 
-                  {/* Liste des fonctionnalités avec icônes orange */}
+                  {/* Features */}
                   {solution.features && solution.features.length > 0 && (
                     <div className="space-y-2.5 pt-4 border-t border-gray-100 mb-8">
                       {solution.features.map((feature, fIndex) => (
@@ -66,29 +74,29 @@ const Solutions = ({ onContact }) => {
                   )}
                 </div>
 
-                {/* Footer de carte */}
+                {/* Footer */}
                 <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
                   {solution.ctaHref ? (
-                    <a 
+                    <a
                       href={solution.ctaHref}
                       target={isExternal ? "_blank" : "_self"}
                       rel={isExternal ? "noopener noreferrer" : ""}
-                      className="inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+                      className="inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors group"
                     >
                       {solution.cta || "En savoir plus"}
                       {isExternal ? (
-                        <ExternalLink className="w-4 h-4 ml-1.5 text-gray-500" />
+                        <ExternalLink className="w-4 h-4 ml-1.5 text-gray-500 group-hover:text-brand-orange transition-colors" />
                       ) : (
-                        <ArrowRight className="w-4 h-4 ml-1.5 text-gray-500" />
+                        <ArrowRight className="w-4 h-4 ml-1.5 text-gray-500 group-hover:text-brand-orange transition-colors group-hover:translate-x-1 duration-200" />
                       )}
                     </a>
                   ) : (
-                    <button 
+                    <button
                       onClick={() => onContact && onContact(solution.id)}
-                      className="inline-flex items-center text-sm font-semibold text-brand-blue hover:text-brand-orange transition-colors"
+                      className="inline-flex items-center text-sm font-semibold text-brand-blue hover:text-brand-orange transition-colors group"
                     >
                       {solution.cta || "Demander un devis"}
-                      <ArrowRight className="w-4 h-4 ml-1.5" />
+                      <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform duration-200" />
                     </button>
                   )}
                 </div>
@@ -97,22 +105,25 @@ const Solutions = ({ onContact }) => {
           })}
         </div>
 
-        {/* CTA Banner sur fond blanc avec bordure nette (AUCUN DÉGRADÉ) */}
-        <div className="mt-16 rounded-xl border border-gray-200 bg-white p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        {/* CTA Banner */}
+        <div
+          ref={ctaRef}
+          className={`mt-16 rounded-xl border border-gray-200 bg-white p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm reveal ${ctaVisible ? 'is-visible' : ''}`}
+        >
           <div className="max-w-xl">
             <h3 className="text-2xl font-bold text-brand-navy mb-2">
-              Prêt à déployer votre solution télécom ?
+              Pret a deployer votre solution telecom ?
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed font-normal">
-              Nos ingénieurs analysent votre infrastructure existante et vous proposent le dimensionnement adapté en moins de 24h.
+              Nos ingenieurs analysent votre infrastructure existante et vous proposent le dimensionnement adapte en moins de 24h.
             </p>
           </div>
-          
-          <button 
+
+          <button
             onClick={() => onContact && onContact()}
             className="btn-accent text-sm py-3 px-6 whitespace-nowrap shrink-0"
           >
-            Parler à un expert GTS
+            Parler a un expert GTS
             <ArrowRight className="w-4 h-4 ml-1 text-white" />
           </button>
         </div>
