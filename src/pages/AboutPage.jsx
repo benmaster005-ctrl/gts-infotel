@@ -4,55 +4,55 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const MILESTONES = [
   {
-    year: '1986 \u2013 1997',
-    title: 'Pionnier GSM & R&D T\u00e9l\u00e9coms en France',
-    desc: 'Travaux de recherche et d\u00e9veloppement pionniers sur les r\u00e9seaux mobiles 2G/GSM en France (SUPELEC & T\u00e9l\u00e9com Paris), participant aux fondations de la r\u00e9volution mobile.',
+    year: '1986 – 1997',
+    title: 'Pionnier GSM & R&D Télécoms en France',
+    desc: 'Travaux de recherche et développement pionniers sur les réseaux mobiles 2G/GSM en France (SUPELEC & Télécom Paris), participant aux fondations de la révolution mobile.',
   },
   {
     year: '2002',
     title: 'Fondation de GTS-Infotel Cameroun',
-    desc: "Cr\u00e9ation de la 1\u00e8re filiale par le groupe GTS AFRICA pour introduire au Cameroun les num\u00e9ros virtuels d\u00e9di\u00e9s aux services de communications \u00e0 valeur ajout\u00e9e (SVA/A2P).",
+    desc: "Création de la 1ère filiale par le groupe GTS AFRICA pour introduire au Cameroun les numéros virtuels dédiés aux services de communications à valeur ajoutée (SVA/A2P).",
   },
   {
-    year: '2017 \u2013 2021',
-    title: 'Partenariat CAMTEL & Alliance APEBI\u2013REPTIC',
-    desc: "Signature de l'accord d'interconnexion directe avec l'op\u00e9rateur historique public CAMTEL pour lancer le r\u00e9seau ProCom, et convention historique Sud-Sud APEBI\u2013REPTIC.",
+    year: '2017 – 2021',
+    title: 'Partenariat CAMTEL & Alliance APEBI–REPTIC',
+    desc: "Signature de l'accord d'interconnexion directe avec l'opérateur historique public CAMTEL pour lancer le réseau ProCom, et convention historique Sud-Sud APEBI–REPTIC.",
   },
   {
     year: '2022',
-    title: 'D\u00e9cret n\u00b02022/10902 sur la num\u00e9rotation',
-    desc: "Cons\u00e9cration r\u00e9glementaire instaurant la cat\u00e9gorie officielle des num\u00e9ros fixes virtuels d\u00e9di\u00e9s \u00e0 l'identification, aux services A2P et \u00e0 la joignabilit\u00e9 l\u00e9gale des personnes morales.",
+    title: 'Décret n°2022/10902 sur la numérotation',
+    desc: "Consécration réglementaire instaurant la catégorie officielle des numéros fixes virtuels dédiés à l'identification, aux services A2P et à la joignabilité légale des personnes morales.",
   },
   {
-    year: '2025 \u2013 2026',
+    year: '2025 – 2026',
     title: 'FADB, Alliance CIRPACK & Lancement Mobinawa',
-    desc: "Co-fondation de la F\u00e9d\u00e9ration des Entreprises Num\u00e9riques Africaines (FADB), partenariat c\u0153ur de r\u00e9seau avec CIRPACK, lancement de Mobinawa \u00e0 PROMOTE 2026 et tribune GITEX Africa 2026 sur l'IA souveraine.",
+    desc: "Co-fondation de la Fédération des Entreprises Numériques Africaines (FADB), partenariat cœur de réseau avec CIRPACK, lancement de Mobinawa à PROMOTE 2026 et tribune GITEX Africa 2026 sur l'IA souveraine.",
   },
 ];
 
 const VALUES = [
   {
     icon: ShieldCheck,
-    title: "Souverainet\u00e9 & Confiance Num\u00e9rique",
-    desc: "Op\u00e9rateur titulaire d'une licence ART Cat\u00e9gorie 1. Nous \u00e9rigeons le Num\u00e9ro PRO en attribut KYC commun pour \u00e9liminer l'usurpation d'identit\u00e9 et s\u00e9curiser l'\u00e9conomie num\u00e9rique.",
+    title: "Souveraineté & Confiance Numérique",
+    desc: "Opérateur titulaire d'une licence ART Catégorie 1. Nous érigeons le Numéro PRO en attribut KYC commun pour éliminer l'usurpation d'identité et sécuriser l'économie numérique.",
   },
   {
     icon: Cpu,
-    title: "Technologies COMTECH & C\u0153ur de R\u00e9seau",
-    desc: "Infrastructures Softswitch et IMSaaS de classe op\u00e9rateur d\u00e9velopp\u00e9es avec CIRPACK et 3CX, garantissant la ma\u00eetrise des donn\u00e9es de communication sur le sol africain.",
+    title: "Technologies COMTECH & Cœur de Réseau",
+    desc: "Infrastructures Softswitch et IMSaaS de classe opérateur développées avec CIRPACK et 3CX, garantissant la maîtrise des données de communication sur le sol africain.",
   },
   {
     icon: Clock,
     title: "Engagement Panafricain & ZLECAf",
-    desc: "Plus de 20 ans au Cameroun et une action r\u00e9solue (REPTIC.CM, FADB) pour un r\u00e9seau de communication professionnelle unifi\u00e9 permettant d'interagir \u00e0 co\u00fbt local au-del\u00e0 des fronti\u00e8res.",
+    desc: "Plus de 20 ans au Cameroun et une action résolue (REPTIC.CM, FADB) pour un réseau de communication professionnelle unifié permettant d'interagir à coût local au-delà des frontières.",
   },
 ];
 
 export default function AboutPage({ onContact, onNavigateHome }) {
-  const [heroRef] = useScrollAnimation();
-  const [visionRef] = useScrollAnimation();
-  const [directorRef] = useScrollAnimation();
-  const [valuesRef] = useScrollAnimation();
+  const [heroRef, heroVisible] = useScrollAnimation();
+  const [visionRef, visionVisible] = useScrollAnimation();
+  const [directorRef, directorVisible] = useScrollAnimation();
+  const [valuesRef, valuesVisible] = useScrollAnimation();
 
   return (
     <div className="bg-white">
@@ -69,8 +69,9 @@ export default function AboutPage({ onContact, onNavigateHome }) {
             <span className="text-brand-navy font-semibold">À propos</span>
           </nav>
 
-          <div className="max-w-4xl space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-navy leading-tight">
+          <div className={`max-w-4xl space-y-6 reveal ${heroVisible ? 'is-visible' : ''}`}>
+            <span className={`orange-bar mb-4 ${heroVisible ? 'is-visible' : ''}`} />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-navy leading-tight mt-4">
               Pionnier de la virtualisation de la téléphonie fixe en Afrique.
             </h1>
             
@@ -104,8 +105,9 @@ export default function AboutPage({ onContact, onNavigateHome }) {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
-            <div className="lg:col-span-5 space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy tracking-tight leading-tight">
+            <div className={`lg:col-span-5 space-y-6 reveal-left ${visionVisible ? 'is-visible' : ''}`}>
+              <span className={`orange-bar mb-4 ${visionVisible ? 'is-visible' : ''}`} />
+              <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy tracking-tight leading-tight mt-4">
                 Une vision bâtie pour le développement de l'Afrique
               </h2>
               
@@ -125,7 +127,10 @@ export default function AboutPage({ onContact, onNavigateHome }) {
             {/* Timeline chronologique épurée */}
             <div className="lg:col-span-7 space-y-4">
               {MILESTONES.map((m, idx) => (
-                <div key={idx} className="clean-card p-6 flex flex-col sm:flex-row gap-6 items-start">
+                <div
+                  key={idx}
+                  className={`clean-card p-6 flex flex-col sm:flex-row gap-6 items-start reveal-right stagger-${idx + 1} ${visionVisible ? 'is-visible' : ''}`}
+                >
                   <div className="font-bold text-xs sm:text-sm text-brand-orange bg-orange-50 border border-orange-200 px-3 py-1.5 rounded shrink-0">
                     {m.year}
                   </div>
@@ -147,8 +152,9 @@ export default function AboutPage({ onContact, onNavigateHome }) {
         <div className="max-w-7xl mx-auto px-6">
 
           {/* En-tête de section */}
-          <div className="max-w-3xl mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy tracking-tight leading-tight mb-4">
+          <div className={`max-w-3xl mb-16 reveal ${directorVisible ? 'is-visible' : ''}`}>
+            <span className={`orange-bar mb-4 ${directorVisible ? 'is-visible' : ''}`} />
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy tracking-tight leading-tight mb-4 mt-4">
               Direction Générale
             </h2>
             <p className="text-base text-gray-600 font-normal leading-relaxed">
@@ -156,14 +162,14 @@ export default function AboutPage({ onContact, onNavigateHome }) {
             </p>
           </div>
 
-          <div className="clean-card p-8 sm:p-12 lg:p-16">
+          <div className={`clean-card p-8 sm:p-12 lg:p-16 reveal-scale ${directorVisible ? 'is-visible' : ''}`}>
             <div className="flex flex-col items-center">
 
               {/* ── IDENTITÉ : photo ronde + nom + poste + réseaux sociaux ── */}
               <div className="flex flex-col items-center text-center mb-10">
 
                 {/* Photo du directeur — ronde et centrée */}
-                <div className="w-40 h-40 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-white shadow-xl ring-2 ring-gray-100 mb-6 shrink-0">
+                <div className="w-40 h-40 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-white shadow-xl ring-2 ring-gray-100 mb-6 shrink-0 transition-transform duration-500 hover:scale-105">
                   <img
                     src="/assets/pierre-francois-kamanou-portrait.jpg"
                     alt="Dr.-Ing. Pierre-François KAMANOU"
@@ -191,7 +197,7 @@ export default function AboutPage({ onContact, onNavigateHome }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn GTS-Infotel"
-                    className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:border-brand-navy hover:text-brand-navy hover:shadow-md transition-all duration-200"
+                    className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:border-brand-navy hover:text-brand-navy hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
                   >
                     <Linkedin className="w-4 h-4" />
                   </a>
@@ -200,7 +206,7 @@ export default function AboutPage({ onContact, onNavigateHome }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Twitter / X GTS-Infotel"
-                    className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:border-brand-navy hover:text-brand-navy hover:shadow-md transition-all duration-200"
+                    className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:border-brand-navy hover:text-brand-navy hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
                   >
                     <Twitter className="w-4 h-4" />
                   </a>
@@ -209,14 +215,14 @@ export default function AboutPage({ onContact, onNavigateHome }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Site web GTS-Infotel"
-                    className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:border-brand-navy hover:text-brand-navy hover:shadow-md transition-all duration-200"
+                    className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:border-brand-navy hover:text-brand-navy hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
                   >
                     <Globe className="w-4 h-4" />
                   </a>
                   <button
                     onClick={onContact}
                     aria-label="Contacter par e-mail"
-                    className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:border-brand-orange hover:text-brand-orange hover:shadow-md transition-all duration-200"
+                    className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:border-brand-orange hover:text-brand-orange hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
                   >
                     <Mail className="w-4 h-4" />
                   </button>
@@ -251,15 +257,15 @@ export default function AboutPage({ onContact, onNavigateHome }) {
 
                 {/* Indicateurs clés */}
                 <div className="grid grid-cols-3 gap-3 sm:gap-4">
-                  <div className="flex flex-col items-center text-center p-4 sm:p-5 rounded-xl border border-gray-200 bg-gray-50">
+                  <div className="flex flex-col items-center text-center p-4 sm:p-5 rounded-xl border border-gray-200 bg-gray-50 hover:border-gray-300 transition-colors">
                     <span className="text-2xl sm:text-3xl font-bold text-brand-navy">40+</span>
                     <span className="text-xs text-gray-500 mt-1 leading-tight">Ans d'expérience</span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-4 sm:p-5 rounded-xl border border-gray-200 bg-gray-50">
+                  <div className="flex flex-col items-center text-center p-4 sm:p-5 rounded-xl border border-gray-200 bg-gray-50 hover:border-gray-300 transition-colors">
                     <span className="text-2xl sm:text-3xl font-bold text-brand-navy">1997</span>
                     <span className="text-xs text-gray-500 mt-1 leading-tight">Pionnier GSM Afrique</span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-4 sm:p-5 rounded-xl border border-gray-200 bg-gray-50">
+                  <div className="flex flex-col items-center text-center p-4 sm:p-5 rounded-xl border border-gray-200 bg-gray-50 hover:border-gray-300 transition-colors">
                     <span className="text-2xl sm:text-3xl font-bold text-brand-orange">2002</span>
                     <span className="text-xs text-gray-500 mt-1 leading-tight">Fondation GTS Africa</span>
                   </div>
@@ -296,8 +302,9 @@ export default function AboutPage({ onContact, onNavigateHome }) {
       <section className="py-24 md:py-32 bg-white border-b border-gray-200" ref={valuesRef}>
         <div className="max-w-7xl mx-auto px-6">
           
-          <div className="max-w-3xl mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy tracking-tight leading-tight mb-4">
+          <div className={`max-w-3xl mb-16 reveal ${valuesVisible ? 'is-visible' : ''}`}>
+            <span className={`orange-bar mb-4 ${valuesVisible ? 'is-visible' : ''}`} />
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy tracking-tight leading-tight mb-4 mt-4">
               Nos Engagements Fondamentaux
             </h2>
             <p className="text-base text-gray-600 font-normal leading-relaxed">
@@ -309,9 +316,12 @@ export default function AboutPage({ onContact, onNavigateHome }) {
             {VALUES.map((val, index) => {
               const Icon = val.icon;
               return (
-                <div key={index} className="clean-card p-8 flex flex-col justify-between">
+                <div
+                  key={index}
+                  className={`clean-card p-8 flex flex-col justify-between reveal stagger-${index + 1} ${valuesVisible ? 'is-visible' : ''}`}
+                >
                   <div>
-                    <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-700 mb-6">
+                    <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-700 mb-6 transition-colors duration-300 group-hover:bg-brand-navy group-hover:text-white">
                       <Icon className="w-5 h-5 text-current" />
                     </div>
                     <h3 className="text-lg font-bold text-brand-navy mb-3">

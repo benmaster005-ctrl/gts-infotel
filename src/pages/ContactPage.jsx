@@ -14,8 +14,8 @@ export default function ContactPage({ onNavigateHome }) {
     message: '',
   });
 
-  const [heroRef] = useScrollAnimation();
-  const [formRef] = useScrollAnimation();
+  const [heroRef, heroVisible] = useScrollAnimation();
+  const [formRef, formVisible] = useScrollAnimation();
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -39,8 +39,9 @@ export default function ContactPage({ onNavigateHome }) {
             <span className="text-brand-navy font-semibold">Contact & Support</span>
           </nav>
 
-          <div className="max-w-3xl space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-navy leading-tight">
+          <div className={`max-w-3xl space-y-6 reveal ${heroVisible ? 'is-visible' : ''}`}>
+            <span className={`orange-bar mb-4 ${heroVisible ? 'is-visible' : ''}`} />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-navy leading-tight mt-4">
               Contactez nos experts télécoms.
             </h1>
             
@@ -58,7 +59,7 @@ export default function ContactPage({ onNavigateHome }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Colonne Gauche - Coordonnées */}
-            <div className="lg:col-span-5 space-y-4">
+            <div className={`lg:col-span-5 space-y-4 reveal-left ${formVisible ? 'is-visible' : ''}`}>
               <h3 className="text-xl font-bold text-brand-navy mb-6">
                 Canaux d'accès direct
               </h3>
@@ -121,7 +122,7 @@ export default function ContactPage({ onNavigateHome }) {
             </div>
 
             {/* Colonne Droite - Formulaire */}
-            <div className="lg:col-span-7">
+            <div className={`lg:col-span-7 reveal-right ${formVisible ? 'is-visible' : ''}`}>
               <div className="clean-card p-8 sm:p-12">
                 <div className="mb-8 pb-6 border-b border-gray-100">
                   <h3 className="text-2xl font-bold text-brand-navy mb-2">
@@ -161,15 +162,14 @@ export default function ContactPage({ onNavigateHome }) {
                       </div>
                       <div>
                         <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                          Nom de l'entreprise *
+                          Entreprise / Organisation
                         </label>
                         <input
                           type="text"
                           name="company"
-                          required
                           value={formData.company}
                           onChange={handleChange}
-                          placeholder="Organisation S.A."
+                          placeholder="Nom de votre société"
                           className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-brand-navy transition-colors placeholder:text-gray-400"
                         />
                       </div>
@@ -186,13 +186,13 @@ export default function ContactPage({ onNavigateHome }) {
                           required
                           value={formData.phone}
                           onChange={handleChange}
-                          placeholder="+237 6xx xx xx xx"
+                          placeholder="+237 6XX XXX XXX"
                           className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-brand-navy transition-colors placeholder:text-gray-400"
                         />
                       </div>
                       <div>
                         <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                          Email professionnel *
+                          Adresse Email *
                         </label>
                         <input
                           type="email"
@@ -208,42 +208,43 @@ export default function ContactPage({ onNavigateHome }) {
 
                     <div>
                       <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                        Sujet / Offre concernée
+                        Solution souhaitée
                       </label>
                       <select
                         name="solution"
                         value={formData.solution}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-brand-navy transition-colors bg-white"
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 bg-white focus:outline-none focus:border-brand-navy transition-colors"
                       >
-                        <option value="numero-pro">Numéro PRO Virtuel (Fixe)</option>
-                        <option value="mobinawa">Mobinawa Suite (App & IPBX Cloud)</option>
-                        <option value="3cx-callcenter">3CX-CallCenter & CRM (Centre de contact)</option>
-                        <option value="reseau-procom">Raccordement Réseau ProCom</option>
-                        <option value="digicontacts">DigiContacts (Omnicanal SI)</option>
+                        <option value="numero-pro">Numéro PRO Virtuel (Fixe A2P)</option>
+                        <option value="mobinawa">Mobinawa (App & Messagerie)</option>
+                        <option value="3cx">Centre de Contacts 3CX & Trunk SIP</option>
+                        <option value="reseau-procom">Réseau ProCom (Raccordement FVNO)</option>
+                        <option value="autre">Autre demande / Audit Télécom</option>
                       </select>
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                        Détails de votre besoin
+                        Votre Message *
                       </label>
                       <textarea
                         name="message"
-                        rows={4}
+                        required
+                        rows="4"
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Précisez votre demande..."
+                        placeholder="Précisez votre besoin, nombre de postes ou volumétrie souhaitée..."
                         className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-brand-navy transition-colors placeholder:text-gray-400 resize-none"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full btn-accent py-3.5 text-sm justify-center rounded-lg"
+                      className="btn-accent w-full text-sm py-3 justify-center"
                     >
-                      Transmettre ma demande
-                      <ArrowRight className="w-4 h-4 ml-1 text-white" />
+                      Envoyer ma demande
+                      <ArrowRight className="w-4 h-4 text-white" />
                     </button>
                   </form>
                 )}

@@ -18,7 +18,7 @@ const PartnerCard = ({ partner }) => (
           <img
             src={partner.logo}
             alt={partner.name}
-            className="max-h-12 max-w-[85%] object-contain"
+            className="max-h-12 max-w-[85%] object-contain transition-transform duration-300 hover:scale-105"
             onError={(e) => { e.target.style.display = 'none'; }}
           />
         ) : (
@@ -48,7 +48,7 @@ const PartnerCard = ({ partner }) => (
 );
 
 const Partners = () => {
-  const [sectionRef] = useScrollAnimation();
+  const [sectionRef, sectionVisible] = useScrollAnimation();
 
   // Duplique le tableau pour l'effet de boucle sans saut visible
   const doubledPartners = [...PARTNERS, ...PARTNERS];
@@ -60,8 +60,9 @@ const Partners = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* En-tête */}
-        <div className="max-w-3xl mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4">
+        <div className={`max-w-3xl mb-14 reveal ${sectionVisible ? 'is-visible' : ''}`}>
+          <span className={`orange-bar mb-4 ${sectionVisible ? 'is-visible' : ''}`} />
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4 mt-4">
             Nos Partenaires Stratégiques
           </h2>
           <p className="text-base text-gray-600 font-normal leading-relaxed">
@@ -70,8 +71,8 @@ const Partners = () => {
         </div>
       </div>
 
-      {/* Piste de défilement infini — déborde intentionnellement du conteneur */}
-      <div className="partners-viewport w-full">
+      {/* Piste de défilement infini */}
+      <div className={`partners-viewport w-full reveal-scale ${sectionVisible ? 'is-visible' : ''}`}>
         <div className="partners-track py-4">
           {doubledPartners.map((partner, index) => (
             <PartnerCard key={index} partner={partner} />

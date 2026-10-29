@@ -20,8 +20,8 @@ const FEATURES = [
 
 /* ─── Composant principal ─────────────────────────────────────────────────── */
 const ProductSpotlight = ({ onContact, onNavigate }) => {
-  const [leftRef]  = useScrollAnimation();
-  const [rightRef] = useScrollAnimation();
+  const [leftRef, leftVisible] = useScrollAnimation();
+  const [rightRef, rightVisible] = useScrollAnimation();
 
   return (
     <section id="procom" className="py-24 md:py-32 bg-white border-b border-gray-200">
@@ -29,7 +29,10 @@ const ProductSpotlight = ({ onContact, onNavigate }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
           {/* ── Colonne Gauche — Présentation ProCom ─────────────────── */}
-          <div ref={leftRef} className="lg:col-span-6 space-y-7">
+          <div
+            ref={leftRef}
+            className={`lg:col-span-6 space-y-7 reveal-left ${leftVisible ? 'is-visible' : ''}`}
+          >
 
             {/* Surtitle */}
             <span className="inline-flex items-center gap-2 text-xs font-semibold text-brand-orange uppercase tracking-widest">
@@ -38,7 +41,8 @@ const ProductSpotlight = ({ onContact, onNavigate }) => {
             </span>
 
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4">
+              <span className={`orange-bar mb-4 ${leftVisible ? 'is-visible' : ''}`} />
+              <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy leading-tight mb-4 mt-4">
                 L'infrastructure numérique souveraine d'identité téléphonique et de communication des entreprises africaines.
               </h2>
               <p className="text-base text-gray-600 leading-relaxed font-normal">
@@ -55,8 +59,11 @@ const ProductSpotlight = ({ onContact, onNavigate }) => {
 
             {/* 3 Passerelles */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {GATEWAYS.map(({ Icon, title, desc }) => (
-                <div key={title} className="p-4 rounded-xl border border-gray-200 bg-white flex flex-col gap-2 hover:border-gray-300 transition-colors">
+              {GATEWAYS.map(({ Icon, title, desc }, idx) => (
+                <div
+                  key={title}
+                  className={`p-4 rounded-xl border border-gray-200 bg-white flex flex-col gap-2 hover:border-gray-300 hover:shadow-sm transition-all duration-300 reveal stagger-${idx + 1} ${leftVisible ? 'is-visible' : ''}`}
+                >
                   <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600">
                     <Icon className="w-4 h-4" />
                   </div>
@@ -69,7 +76,10 @@ const ProductSpotlight = ({ onContact, onNavigate }) => {
             {/* Liste fonctionnalités */}
             <ul className="space-y-2.5">
               {FEATURES.map((feature, index) => (
-                <li key={index} className="flex items-start gap-3">
+                <li
+                  key={index}
+                  className={`flex items-start gap-3 reveal stagger-${Math.min(index + 1, 6)} ${leftVisible ? 'is-visible' : ''}`}
+                >
                   <Check className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm font-normal">{feature}</span>
                 </li>
@@ -95,11 +105,14 @@ const ProductSpotlight = ({ onContact, onNavigate }) => {
           </div>
 
           {/* ── Colonne Droite — Logo ProCom intégré ─────────────────── */}
-          <div ref={rightRef} className="lg:col-span-6 flex items-center justify-center">
+          <div
+            ref={rightRef}
+            className={`lg:col-span-6 flex items-center justify-center reveal-right ${rightVisible ? 'is-visible' : ''}`}
+          >
             <img
               src="/assets/procom-logo.png"
               alt="Réseau ProCom — GTS Africa"
-              className="w-full max-w-md sm:max-w-lg h-auto object-contain"
+              className="w-full max-w-md sm:max-w-lg h-auto object-contain transition-transform duration-500 hover:scale-[1.02]"
             />
           </div>
 
